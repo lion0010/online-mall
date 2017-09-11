@@ -1,491 +1,223 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title></title>
-		
-	<style>
-		*{margin: 0;padding: 0;}
-		header{
-			width: 100%;
-			height: 30px;
-			background: pink;
-			color: white;
-			font-size: 15px;
-			line-height: 30px;
-		}
-		header p{
-			position: relative;
-			margin-left: 100px;
-			}
-		header ul{
-			right: 0;
-			top: 0;
-			position: absolute;
-			margin-right: 100px;
-		}
-		header ul li{
-			list-style: none;
-			float: left;
-			width: 100px;
-			height: 20px;
-			text-align: center;
-		}
-		a{
-			text-decoration: none;
-			color: white;
-		}
-		nav{
-			width:1000px;
-			height: 150px;
-			margin: auto;
-		}
-		#search-text{
-			width: 500px;
-			height: 40px;
-			border: 1px solid pink;
-			float: right;
-			margin-top: 70px;
-			
-		}
-		#search-text input{
-			width:360px ;
-			height: 20px;
-			border:0;
-			outline: 0;
-			padding: 10px;
-		}
-		#search-text span{
-			float: right;
-    		width: 120px;
-    		height: 40px;
-    		cursor: pointer;
-    		background-color:pink;
-    		color: white;
-    		line-height: 40px;
-    		text-align: center;
-		}
-		.nav-list{
-			width: 1200px;
-			height: 50px;
-			background: pink;
-			margin: auto;
-			margin-bottom: 20px;
-		}
-		.nav-list li{
-			list-style: none;
-			color: white;
-			float: left;
-			line-height: 50px;
-			width: 120px;
-			height: 50px;
-			text-align: center;
-			background: pink;
-			color: white;
-		}
-		.nav-list li a{
-			width: 100px;
-			height: 50px;
-			display: inline-block;
-		}
-		.nav-list a:hover {
-			color: pink;
-			background: white;
-		}
-		.carousel{
-			width: 1200px;
-			height:400px;
-			margin:auto;
-			position: relative;
-			overflow: hidden;
-		}
-		.carousel ul{
-			list-style: none;
-		}
-		.carousel ul li{
-			position: absolute;
-			top: 0;
-			left: 0;
-			opacity: 0;
-			filter:alpha(opacity = 0);
-		}
-		.carousel ul li.first{
-			opacity: 1;
-			filter:alpha(opacity = 0);
-		}
-		.btns a{
-			position: absolute;
-			width: 40px;
-			height: 40px;
-			top: 50%;
-			margin-top: -20px;
-			
-			font-size: 30px;
-			line-height: 40px;
-			text-align: center;
-			
-			font-weight: bold;
-			cursor: pointer;
-			z-index: 999;
-		}
-		.leftBtn{
-			background: url(images/left.png) no-repeat;
-			left: 10px;
-		}
-		.rightBtn{
-			background: url(images/right.png) no-repeat;
-			right: 10px;
-		}
-		.circles{
-			position: absolute;
-			width: 150px;
-			height: 16px;
-			bottom: 10px;
-			left: 500px;
-			
-		}
-		.circles ol{
-			list-style: none;
-		}
-		.circles ol li{
-			float: left;
-			width: 16px;
-			height: 16px;
-			border: 1px solid white;
-			margin-right: 10px;
-			border-radius: 50%;
-			cursor: pointer;
-		}
-		.circles ol li.cur{
-			background-color: pink;
-		}
-		.goods-list{
-			width: 1000px;
-			margin: auto;
-			margin-top: 20px;
-			
-		}
-		.goods-list>span{
-			width: 1000px;
-			border-bottom: 1px dashed  dodgerblue;
-			height: 50px;
-			text-align: center;
-			line-height: 50px;
-			display: inline-block;
-			color: dodgerblue;
-			font-size: 25px;
-		}
-		#hot-goods{
-  		width: 1000px;
-  		height: 1100px;
-  		
-  	}
-    #hot>li {
-      float: left;
-      list-style: none;
-      width: 210px;
-      height: 290px;
-      padding: 10px;
-      margin-right: 20px;
-      margin-bottom: 40px;
-      font-size: 14px; 
-    }
-    #hot img{
-    	width: 220px;
-    	height: 220px;
-    	margin-top:10px;
-    	margin-bottom: 10px;
-    	border-radius: 40px;
-    }
-    
-   	#hot p{
-   		margin-bottom: 20px;
-   		width: 200px;
-   		height: 50px;
-   		color: dodgerblue;
-   		margin-left: 10px;
-   	}
-   	#hot span{
-   		width: 200px;
-   		height: 50px;
-   		margin-left: 10px;
-   		color: #f36;
-   	}
-   #hot p:hover{
-   	color: #f36;
-   }
-   footer{
-   	background: url(images/house.jpg) no-repeat;
-   	width: 100%;
-   	background-size: 100% 800px;
-   	padding-top: 20px;
-   }
-   footer>div{
-   	width: 1200px;
-    height: 600px;
-   	margin: auto;
-   }
-   .up{
-   	width: 1200px;
-   	height: 100px;
-   	border-bottom: 1px solid pink;
-   }
-   .zheng,.shou,.te,.help{
-   	width: 230px;
-   	height: 100px;
-   	float: left;
-   	text-align: center;
-   	margin-right: 60px;
-   	margin-top: 20px;
-   }
-   .up p{
-   	float:right;
-   }
-   .down{
-   	width: 1200px;
-   	height: 230px;
-   }
-   dl{
-   	width: 150px;
-   	height: 200px;
-   	float: left;
-   	margin-left: 60px;
-   	margin-top: 10px;
-   }
-   dt{
-   	font-size: 20px;
-   	font-weight: 200;
-   }
-   dd{
-   	margin-top: 10px;
-   }
-   .foot{
-   	width: 1200px;
-   	height: 300px;
-   	margin-top: 30px;
-   }
-   .foot ul{
-   	width: 1200px;
-   	height: 50px;
-   	margin-bottom: 20px;
-   	margin: auto;
-   	line-height: 50px;
-   }
-   .foot ul li{
-   	list-style: none;
-   	float: left;
-   	margin-right: 20px;
-   	font-size: 12px;
-   	text-align: center;
-   }
-	</style>
-		
-	</head>
-	<body>
-		<script src="myajax.js" charset="utf-8"></script>
-		<header>
-			<p>喵喵喵，欢迎小主</p>
-			<ul>
-				<li><a href="login.html" name="login" class="login">欢迎登录❤</a></li>
-				<li><a href="register.html" name="register" class="register">免费注册❤</a></li>
-				<li><a href="#" name="username" class="username">小主❤</a></li>
-				<li><a href="javascript:localStorage.clear(); location.reload();" class="logout">退出❤</a></li>
-				<script>
-      			//判断用户名如果存在, 则显示用户名并显示退出按钮, 否则显示注册和登录
-      			if (localStorage.username) {
-        			var oUsername = document.querySelector('a[name=username]');
-        			var oLogout = document.querySelector('.logout');
-        			oUsername.innerText = localStorage.username;
-        			oUsername.style.display = 'inline';
-        			oLogout.style.display = 'inline';
-      			} else {
-        			var oRegister = document.querySelector('.register');
-       				var oLogin = document.querySelector('.login');
-        			oRegister.style.display = 'inline';
-        			oLogin.style.display = 'inline';
-      			}
-    			</script>
-				<li><a href="cart.html">购物车❤</a></li>
-				<li><a href="order.html">我的订单❤</a></li>
-			</ul>
-		</header>
-		<nav>
-			<img src="img/mao.gif" />
-			
-			<div id="search-text">
-				<input id="search" type="text" placeholder="请输入要搜索的内容">
-				<a href="search.html"><span>搜索</span></a>
-    			<script>
-      			var oSearch = document.querySelector("#search");
-      			oSearch.onkeyup = function(event) {
-        			if (event.keyCode === 13) {
-          				location.href = 'search.html?search_text='+this.value;
-        			}
-      			}
-    			</script>
-    		</div>
-		</nav>
-		<div class="nav-list">
-			<ul id="cat" class="cat"></ul>		
-    		<script>
-    		var oCat = document.querySelector('#cat');
-    		myajax.get('http://h6.duchengjiu.top/shop/api_cat.php', {}, function(error, responseText){
-        		var json = JSON.parse(responseText);//返回的整个json对象
-        		var data = json.data;//json对象当中的data是一个数组
-        		for (var i = 0; i < data.length; i++) {
-          			var obj = data[i];//数组里面的每一项是一个商品分类的对象
-          			oCat.innerHTML += `<li><a href="list.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`;
-        		}
-    		});
-    		</script>
-		</div>	
-		<div class="carousel" id="carousel">
-			<div class="btns">
-				<a class="leftBtn"  id="leftBtn"></a>
-				<a class="rightBtn" id="rightBtn"></a>
-			</div>
-			<div class="imageslist" id="imageslist">
-				<ul>
-					<li class="first"><a><img src="images/0.jpg" alt="" /></a></li>
-					<li><a><img src="images/4.jpg" alt="" /></a></li>
-					<li><a><img src="images/0.jpg" alt="" /></a></li>
-					<li><a><img src="images/0.jpg" alt="" /></a></li>
-					<li><a><img src="images/4.jpg" alt="" /></a></li>
-				</ul>
-			</div>
-			<div class="circles" id="circles">
-				<ol>
-					<li class="cur"></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ol>
-			</div>
-			<script type="text/javascript" src="animate-2.0.1.js"></script>
-			<script type="text/javascript" src="carouse.js"></script>
-		</div>
-		<div class="goods-list">
-			<span>❤热卖单品</span>
-			<ul id="hot-goods"></ul>
-			<script>
-    		var oGoods= document.querySelector('#hot-goods');
-    		myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', {}, function(error, responseText){
-        		var json = JSON.parse(responseText);//返回的整个json对象
-        		var data = json.data;//json对象当中的data是一个数组
-        		for (var i = 0; i < data.length; i++) {
-          			var obj = data[i];//数组里面的每一项是一个商品分类的对象
-          			oGoods.innerHTML += `<div id="hot"><li><a href="goods.html?goods_id=${obj.goods_id}"><img src="${obj.goods_thumb}"/> <p>${obj.goods_name} </p><span>¥${obj.price}</span></a></li></div>`;
-        		}	
-   			 });
-			</script>
-		</div>
-    	<footer>
-    		<div>
-    			<div class="up">
-    				<div class="zheng">
-    					<img src="images/zheng.jpg" />
-    					<p>正品保障<br/>正品保障，提供发货</p>
-    				</div>
-    				<div class="shou">
-    					<img src="images/shou.jpg" />
-    					<p>正品保障<br/>正品保障，提供发货</p>
-    				</div>
-    				<div class="te">
-    					<img src="images/te.jpg" />
-    					<p>正品保障<br/>正品保障，提供发货</p>
-    				</div>
-    				<div class="help">
-    					<img src="images/help.jpg" />
-    					<p>正品保障<br/>正品保障，提供发货</p>
-    				</div>
-    			</div>
-    			<div class="down">
-    				<dl>
-    					<dt>购物指南</dt>
-    					<dd>免费注册</dd>
-    					<dd>开通支付宝</dd>
-    					<dd>支付宝充值</dd>
-    				</dl>
-    				<dl>
-    					<dt>天猫保障</dt>
-    					<dd>发票保障</dd>
-    					<dd>售后规则</dd>
-    					<dd>缺货赔付</dd>
-    				</dl>
-    				<dl>
-    					<dt>支付方式</dt>
-    					<dd>快捷支付</dd>
-    					<dd>信用卡</dd>
-    					<dd>余额宝</dd>
-    					<dd>蚂蚁花呗</dd>
-    					<dd>货到付款</dd>
-    				</dl>
-    				<dl>
-    					<dt>商家服务</dt>
-    					<dd>商家入驻</dd>
-    					<dd>商家中心</dd>
-    					<dd>天猫智库</dd>
-    					<dd>天猫规则</dd>
-    					<dd>物流服务</dd>
-    					<dd>喵言喵语</dd>
-    					<dd>运营服务</dd>
-    				</dl>
-    				<dl>
-    					<dt>手机天猫</dt>
-    					<dd><img src="images/ma.png"/></dd>
-    				</dl>
-    			</div>
- 				<div class="foot">
-				<ul>
-				<li>关于天猫</li>
-				<li>帮助中心</li>
-				<li>开放平台</li>
-				<li>诚聘英才</li>
-				<li>联系我们</li>
-				<li>网站合作</li>
-				<li>法律声明及隐私权政策</li>
-				<li>知识产权</li>
-				<li>廉政举报</li>
-				<li>规则意见征集</li>
-				</ul>
-				<ul>
-				<li>阿里巴巴集团</li>
-				<li>淘宝网</li>
-				<li>天猫</li>
-				<li>聚划算</li>
-				<li>全球速变通</li>
-				<li>阿里巴巴国际交易市场</li>
-				<li>1688</li>
-				<li>阿里妈妈</li>
-				<li>飞猪</li>
-				<li>阿里云计算</li>
-				<li>YunOS</li>
-				<li>阿里通信</li>
-				<li>万网</li>
-				<li>高德</li>
-				<li>UC</li>
-				<li>友盟</li>
-				<li>虾米</li>
-				<li>阿里星球</li>
-				<li>来往</li>
-				<li>钉钉</li>
-				<li>支付宝</li>
-				</ul>
-				<ul>
-				<li>增值电信业务经营许可证：浙B2-20110446</li>
-				<li>网络文化经营许可证：浙网文[2015]0295-065号</li>
-				<li>12318举报</li>
-				</ul>
-				<ul>
-				<li>互联网药品信息服务资质证书编号：浙-（经营性）-2017-0005</li>
-				<li><img src=""/>折公网安备33010002000120号</li>
-				</ul>
-				<p>2003-2017 TMALL.COM版权所有</tmall></p>
-				<img src="" />
-				<img src="" />
-				</div>
-			</div>
-		</footer>
-	</body>
+
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <link rel="stylesheet" href="style/reset.css">
+  <link rel="stylesheet" href="style/main.css">
+</head>
+
+<body>
+  <script src="js/myajax.js" charset="utf-8"></script>
+  <header>
+    <p>喵喵喵，欢迎小主</p>
+    <ul>
+      <li><a href="html/login.html" name="login" class="login">欢迎登录</a></li>
+      <li><a href="html/register.html" name="register" class="register">免费注册</a></li>
+      <li><a href="#" name="username" class="username">小主</a></li>
+      <li><a href="javascript:localStorage.clear(); location.reload();" class="logout">退出</a></li>
+      <script>
+      //判断用户名如果存在, 则显示用户名并显示退出按钮, 否则显示注册和登录
+      if (localStorage.username) {
+        var oUsername = document.querySelector('a[name=username]');
+        var oLogout = document.querySelector('.logout');
+        oUsername.innerText = localStorage.username;
+        oUsername.style.display = 'inline';
+        oLogout.style.display = 'inline';
+      } else {
+        var oRegister = document.querySelector('.register');
+        var oLogin = document.querySelector('.login');
+        oRegister.style.display = 'inline';
+        oLogin.style.display = 'inline';
+      }
+      </script>
+      <li><a href="html/cart.html">购物车</a></li>
+      <li><a href="html/order.html">我的订单</a></li>
+    </ul>
+  </header>
+  <nav>
+    <img src="img/mao.gif" />
+    <div id="search-text">
+      <input id="search" type="text" placeholder="请输入要搜索的内容">
+      <a href="html/search.html"><span>搜索</span></a>
+      <script>
+      var oSearch = document.querySelector("#search");
+      oSearch.onkeyup = function(event) {
+        if (event.keyCode === 13) {
+          location.href = 'html/search.html?search_text=' + this.value;
+        }
+      }
+      </script>
+    </div>
+  </nav>
+  <div class="nav-list">
+    <ul id="cat" class="cat"></ul>
+    <script>
+    var oCat = document.querySelector('#cat');
+    myajax.get('http://h6.duchengjiu.top/shop/api_cat.php', {}, function(error, responseText) {
+      var json = JSON.parse(responseText); //返回的整个json对象
+      var data = json.data; //json对象当中的data是一个数组
+      for (var i = 0; i < data.length; i++) {
+        var obj = data[i]; //数组里面的每一项是一个商品分类的对象
+        oCat.innerHTML += `<li><a href="html/list.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`;
+      }
+    });
+    </script>
+  </div>
+  <div class="carousel" id="carousel">
+    <div class="btns">
+      <a class="leftBtn" id="leftBtn"></a>
+      <a class="rightBtn" id="rightBtn"></a>
+    </div>
+    <div class="imageslist" id="imageslist">
+      <ul>
+        <li class="first"><a><img src="img/0.jpg" alt="" /></a></li>
+        <li><a><img src="img/4.jpg" alt="" /></a></li>
+        <li><a><img src="img/0.jpg" alt="" /></a></li>
+        <li><a><img src="img/0.jpg" alt="" /></a></li>
+        <li><a><img src="img/4.jpg" alt="" /></a></li>
+      </ul>
+    </div>
+    <div class="circles" id="circles">
+      <ol>
+        <li class="cur"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ol>
+    </div>
+    <script type="text/javascript" src="js/animate-2.0.1.js"></script>
+    <script type="text/javascript" src="js/carouse.js"></script>
+  </div>
+  <div class="goods-list">
+    <span>❤热卖单品</span>
+    <ul id="hot-goods"></ul>
+    <script>
+    var oGoods = document.querySelector('#hot-goods');
+    myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', {}, function(error, responseText) {
+      var json = JSON.parse(responseText); //返回的整个json对象
+      var data = json.data; //json对象当中的data是一个数组
+      for (var i = 0; i < data.length; i++) {
+        var obj = data[i]; //数组里面的每一项是一个商品分类的对象
+        oGoods.innerHTML += `<div id="hot"><li><a href="goods.html?goods_id=${obj.goods_id}"><img src="${obj.goods_thumb}"/> <p>${obj.goods_name} </p><span>¥${obj.price}</span></a></li></div>`;
+      }
+    });
+    </script>
+  </div>
+  <footer>
+    <div>
+      <div class="up">
+        <div class="zheng">
+          <img src="img/zheng.jpg" />
+          <p>正品保障
+            <br/>正品保障，提供发货</p>
+        </div>
+        <div class="shou">
+          <img src="img/shou.jpg" />
+          <p>正品保障
+            <br/>正品保障，提供发货</p>
+        </div>
+        <div class="te">
+          <img src="img/te.jpg" />
+          <p>正品保障
+            <br/>正品保障，提供发货</p>
+        </div>
+        <div class="help">
+          <img src="img/help.jpg" />
+          <p>正品保障
+            <br/>正品保障，提供发货</p>
+        </div>
+      </div>
+      <div class="down">
+        <dl>
+          <dt>购物指南</dt>
+          <dd>免费注册</dd>
+          <dd>开通支付宝</dd>
+          <dd>支付宝充值</dd>
+        </dl>
+        <dl>
+          <dt>天猫保障</dt>
+          <dd>发票保障</dd>
+          <dd>售后规则</dd>
+          <dd>缺货赔付</dd>
+        </dl>
+        <dl>
+          <dt>支付方式</dt>
+          <dd>快捷支付</dd>
+          <dd>信用卡</dd>
+          <dd>余额宝</dd>
+          <dd>蚂蚁花呗</dd>
+          <dd>货到付款</dd>
+        </dl>
+        <dl>
+          <dt>商家服务</dt>
+          <dd>商家入驻</dd>
+          <dd>商家中心</dd>
+          <dd>天猫智库</dd>
+          <dd>天猫规则</dd>
+          <dd>物流服务</dd>
+          <dd>喵言喵语</dd>
+          <dd>运营服务</dd>
+        </dl>
+        <dl>
+          <dt>手机天猫</dt>
+          <dd><img src="img/ma.png" /></dd>
+        </dl>
+      </div>
+      <div class="foot">
+        <ul>
+          <li>关于天猫</li>
+          <li>帮助中心</li>
+          <li>开放平台</li>
+          <li>诚聘英才</li>
+          <li>联系我们</li>
+          <li>网站合作</li>
+          <li>法律声明及隐私权政策</li>
+          <li>知识产权</li>
+          <li>廉政举报</li>
+          <li>规则意见征集</li>
+        </ul>
+        <ul>
+          <li>阿里巴巴集团</li>
+          <li>淘宝网</li>
+          <li>天猫</li>
+          <li>聚划算</li>
+          <li>全球速变通</li>
+          <li>阿里巴巴国际交易市场</li>
+          <li>1688</li>
+          <li>阿里妈妈</li>
+          <li>飞猪</li>
+          <li>阿里云计算</li>
+          <li>YunOS</li>
+          <li>阿里通信</li>
+          <li>万网</li>
+          <li>高德</li>
+          <li>UC</li>
+          <li>友盟</li>
+          <li>虾米</li>
+          <li>阿里星球</li>
+          <li>来往</li>
+          <li>钉钉</li>
+          <li>支付宝</li>
+        </ul>
+        <ul>
+          <li>增值电信业务经营许可证：浙B2-20110446</li>
+          <li>网络文化经营许可证：浙网文[2015]0295-065号</li>
+          <li>12318举报</li>
+        </ul>
+        <ul>
+          <li>互联网药品信息服务资质证书编号：浙-（经营性）-2017-0005</li>
+          <li><img src="" />折公网安备33010002000120号</li>
+        </ul>
+        <p>2003-2017 TMALL.COM版权所有</tmall>
+        </p>
+        <img src="" />
+        <img src="" />
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>

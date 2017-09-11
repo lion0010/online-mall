@@ -1,0 +1,313 @@
+header {
+  width: 100%;
+  height: 30px;
+  background: pink;
+  color: white;
+  font-size: 15px;
+  line-height: 30px;
+}
+
+header p {
+  position: relative;
+  margin-left: 100px;
+}
+
+header ul {
+  right: 0;
+  top: 0;
+  position: absolute;
+  margin-right: 100px;
+}
+
+header ul li {
+  list-style: none;
+  float: left;
+  width: 100px;
+  height: 20px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+nav {
+  width: 1000px;
+  height: 150px;
+  margin: auto;
+}
+
+#search-text {
+  width: 500px;
+  height: 40px;
+  border: 1px solid pink;
+  float: right;
+  margin-top: 70px;
+}
+
+#search-text input {
+  width: 360px;
+  height: 20px;
+  border: 0;
+  outline: 0;
+  padding: 10px;
+}
+
+#search-text span {
+  float: right;
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+  background-color: pink;
+  color: white;
+  line-height: 40px;
+  text-align: center;
+}
+
+.nav-list {
+  width: 1200px;
+  height: 50px;
+  background: pink;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.nav-list li {
+  list-style: none;
+  color: white;
+  float: left;
+  line-height: 50px;
+  width: 120px;
+  height: 50px;
+  text-align: center;
+  background: pink;
+  color: white;
+}
+
+.nav-list li a {
+  width: 100px;
+  height: 50px;
+  display: inline-block;
+}
+
+.nav-list a:hover {
+  color: pink;
+  background: white;
+}
+
+.carousel {
+  width: 1200px;
+  height: 400px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel ul {
+  list-style: none;
+}
+
+.carousel ul li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.carousel ul li.first {
+  opacity: 1;
+  filter: alpha(opacity=0);
+}
+
+.btns a {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  margin-top: -20px;
+
+  font-size: 30px;
+  line-height: 40px;
+  text-align: center;
+
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.leftBtn {
+  background: url(../img/left.png) no-repeat;
+  left: 10px;
+}
+
+.rightBtn {
+  background: url(../img/right.png) no-repeat;
+  right: 10px;
+}
+
+.circles {
+  position: absolute;
+  width: 150px;
+  height: 16px;
+  bottom: 10px;
+  left: 500px;
+}
+
+.circles ol {
+  list-style: none;
+}
+
+.circles ol li {
+  float: left;
+  width: 16px;
+  height: 16px;
+  border: 1px solid white;
+  margin-right: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.circles ol li.cur {
+  background-color: pink;
+}
+
+.goods-list {
+  width: 1000px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.goods-list>span {
+  width: 1000px;
+  border-bottom: 1px dashed dodgerblue;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  display: inline-block;
+  color: dodgerblue;
+  font-size: 25px;
+}
+
+#hot-goods {
+  width: 1000px;
+  height: 1100px;
+}
+
+#hot>li {
+  float: left;
+  list-style: none;
+  width: 210px;
+  height: 290px;
+  padding: 10px;
+  margin-right: 20px;
+  margin-bottom: 40px;
+  font-size: 14px;
+}
+
+#hot img {
+  width: 220px;
+  height: 220px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 40px;
+}
+
+#hot p {
+  margin-bottom: 20px;
+  width: 200px;
+  height: 50px;
+  color: dodgerblue;
+  margin-left: 10px;
+}
+
+#hot span {
+  width: 200px;
+  height: 50px;
+  margin-left: 10px;
+  color: #f36;
+}
+
+#hot p:hover {
+  color: #f36;
+}
+
+footer {
+  background: url(../img/house.jpg) no-repeat;
+  width: 100%;
+  background-size: 100% 800px;
+  padding-top: 20px;
+}
+
+footer>div {
+  width: 1200px;
+  height: 600px;
+  margin: auto;
+}
+
+.up {
+  width: 1200px;
+  height: 100px;
+  border-bottom: 1px solid pink;
+}
+
+.zheng,
+.shou,
+.te,
+.help {
+  width: 230px;
+  height: 100px;
+  float: left;
+  text-align: center;
+  margin-right: 60px;
+  margin-top: 20px;
+}
+
+.up p {
+  float: right;
+}
+
+.down {
+  width: 1200px;
+  height: 230px;
+}
+
+dl {
+  width: 150px;
+  height: 200px;
+  float: left;
+  margin-left: 60px;
+  margin-top: 10px;
+}
+
+dt {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+dd {
+  margin-top: 10px;
+}
+
+.foot {
+  width: 1200px;
+  height: 300px;
+  margin-top: 30px;
+}
+
+.foot ul {
+  width: 1200px;
+  height: 50px;
+  margin-bottom: 20px;
+  margin: auto;
+  line-height: 50px;
+}
+
+.foot ul li {
+  list-style: none;
+  float: left;
+  margin-right: 20px;
+  font-size: 12px;
+  text-align: center;
+}
