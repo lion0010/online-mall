@@ -4,18 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="../style/reset.css">
+  <link rel="stylesheet" href="../style/main.css">
   <title>Document</title>
+  <style>
+  	main{
+  		width: 1000px;
+  		margin: auto;
+  	}
+table,td {
+  border: 1px solid pink;
+  padding: 10px;
+  vertical-align: middle;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+table img {
+  border-radius: 50%;
+  width: 100px;
+}
+  </style>
 </head>
 <body>
-  <header><div class="header-container">
-    <a href="index.html">首页</a>
-    <a href="register.html" name="register" class="register">注册</a>
-    <a href="login.html" name="login" class="login">登录</a>
-    <a href="#" name="username" class="username">asdfghjkl1</a>
-    <!-- 可以在a链接里面写javascript代码，在href属性中以javascript:开头，后面写js代码 -->
-    <a href="javascript:localStorage.clear(); location.reload();" class="logout">退出</a>
-    <script>
+   <script src="../js/myajax.js" charset="utf-8"></script>
+	<header>
+    <p>喵喵喵，欢迎小主</p>
+    <ul>
+      <li><a href="login.html" name="login" class="login">欢迎登录</a></li>
+      <li><a href="register.html" name="register" class="register">免费注册</a></li>
+      <li><a href="#" name="username" class="username">小主</a></li>
+      <li><a href="javascript:localStorage.clear(); location.reload();" class="logout">退出</a></li>
+      <script>
       //判断用户名如果存在, 则显示用户名并显示退出按钮, 否则显示注册和登录
       if (localStorage.username) {
         var oUsername = document.querySelector('a[name=username]');
@@ -29,21 +51,27 @@
         oRegister.style.display = 'inline';
         oLogin.style.display = 'inline';
       }
-    </script>
-
-    <a href="cart.html">购物车</a>
-    <a href="order.html">我的订单</a>
-    <script src="js/myajax.js" charset="utf-8"></script>
-    <input id="search" type="text" placeholder="请输入要搜索的内容">
+      </script>
+      <li><a href="cart.html">购物车</a></li>
+      <li><a href="order.html">我的订单</a></li>
+    </ul>
+  </header>
+  <nav>
+    <a href="http://127.0.0.1:8080/index.html"><img src="../img/mao.gif" /></a>
+    <div id="search-text">
+      <input id="search" type="text" placeholder="请输入要搜索的内容">
+      <a href="search.html"><span>搜索</span></a>
     <script>
       var oSearch = document.querySelector("#search");
       oSearch.onkeyup = function(event) {
         if (event.keyCode === 13) {
-          location.href = 'search.html?search_text='+this.value;
+          location.href = 'search.html?search_text=' + this.value;
         }
       }
-    </script>
-
+      </script>
+    </div>
+  </nav>
+   <div class="nav-list">
     <ul id="cat" class="cat"></ul>
     <script>
     var oCat = document.querySelector('#cat');
@@ -56,22 +84,22 @@
         }
     });
     </script>
-  </div></header>
-
+  </div>
   <main>
     <table>
       <tr>
-        <td>商品ID</td>
         <td>图片</td>
         <td>名称</td>
-        <td>数量</td>
         <td>单价</td>
+        <td>数量</td>
         <td>总价</td>
         <td>操作</td>
       </tr>
     </table>
     <div>小计：<span id="sum">0</span> <input type="button" id="clear-cart" value="清空购物车"> <a href="checkout.html">结算</a></div>
   </main>
+  
+  
   <script src="js/myajax.js" charset="utf-8"></script>
   <script>
     var oTable = document.querySelector('table');
@@ -86,11 +114,10 @@
         obj.goods_sum = obj.goods_price * obj.goods_number;
         oTable.innerHTML += `
                           <tr>
-                            <td name="goods_id">${obj.goods_id}</td>
                             <td><img src="${obj.goods_thumb}" ></td>
                             <td>${obj.goods_name}</td>
-                            <td><input data-id="${obj.goods_id}" type="number" name="number" min="1" max="10" value="${obj.goods_number}" /></td>
                             <td>￥${obj.goods_price}</td>
+                            <td><input data-id="${obj.goods_id}" type="number" name="number" min="1" max="10" value="${obj.goods_number}" /></td>
                             <td name="sum">￥${obj.goods_sum}</td>
                             <td><input data-id="${obj.goods_id}" type="button" name="delete" value="删除"></td>
                           </tr>
