@@ -5,7 +5,7 @@
     var data = json.data; //json对象当中的data是一个数组
     for (var i = 0; i < data.length; i++) {
       var obj = data[i]; //数组里面的每一项是一个商品分类的对象
-      oCat.innerHTML += `<li><a href="list.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`;
+      oCat.innerHTML += `<li><a href="html/list.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`;
     }
   });
   var topNav = document.querySelector('.nav-list');

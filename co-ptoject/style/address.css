@@ -1,25 +1,30 @@
-  form>p{
+  form>p {
     font-size: 20px;
     color: pink;
-    line-height: 50px;
+    margin-left: 100px;
+    line-height: 100px;
   }
-  form>label>input{
-    outline:none;
+
+  form>label>input {
+    outline: none;
   }
-    
+
   label {
     display: block;
     text-align: right;
     margin-bottom: 5px;
   }
+
+
+
   .address-ul {
-    overflow: hidden;
     height: 130px;
+    margin-top: 90px;
   }
+
   .address-ul li {
-    width: 250px;
-    height: 120px;
-    overflow: hidden;
+    width: 750px;
+    height: 60px;
     border: 1px solid #e4e4e4;
     padding: 5px;
     background-color: #ccc;
@@ -27,22 +32,39 @@
     cursor: pointer;
     box-sizing: border-box;
   }
+
+  .address-ul li span {
+    float: left;
+    height: 40px;
+    line-height: 50px;
+    margin-right: 30px;
+    width: 150px;
+    text-align: center;
+    font-size: 16px;
+  }
+
   .address-ul li.selected {
     border: 1px solid orange;
   }
-  .delete {
+
+  .address-ul li .delete {
     float: right;
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 5px;
-    background-color: orange;
+    background-color: pink;
     color: white;
+    line-height: 40px;
     cursor: pointer;
+    width: 60px;
+    text-align: center;
   }
-  .delete:hover {
+
+  .address-ul li .delete:hover {
     background-color: white;
-    color: orange;
+    color: pink;
   }
+
   .show-all-address {
     clear: both;
     width: 100px;
@@ -53,72 +75,108 @@
     background-color: orange;
     color: white;
   }
+
   .show-all-address:hover {
     background-color: white;
     color: orange;
   }
-.header-box{
+
+  .header-box {
     height: 36px;
     background: #fff;
     padding: 12px 0;
     position: relative;
     z-index: 5;
     border-bottom: 1px #e7e7e7 solid;
-}
-.header-box-left{
-  font-family: cursive;
-  width: 190px;
-  color: pink;
-  margin-top: 18px;
-  font-size: 30px;
-  margin-left: 100px;
-  height: 36px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-position: left center;
-}
-.header-box-right{
-  font-family: cursive;
-  font-size: 20px;
-  float: right;
-  line-height: 36px;
-  margin-top: 18px;
-  color: #000;
-  margin-right:300px;
-  cursor: pointer;
-}
-.add{
-  width: 120px;
-  line-height: 30px;
-  background: pink;
-  margin-top: 10px;
-  margin-right: 34px;
-  border: 0;
-  font-size: 16px;
-  color: #ffffff;
-  cursor: pointer;
-  border-radius: 5px;
-}
-.add:hover{
-  background:#fff;
-  color: pink;
-}
-main{
-  margin-top: 30px;
-  float: right;
-  padding-right: 600px; 
-}
-main>span{
-  margin-left: -100px;
-  color: pink;
-  font-size: 20px;
-}
-.container{
-  width: 100%;
-}
-.left-add{
-  float: left;
-  height: 600px;
-  width:400px;
-}
+  }
+
+  .header-box-left {
+    font-family: cursive;
+    width: 190px;
+    color: pink;
+    margin-top: 18px;
+    font-size: 30px;
+    margin-left: 100px;
+    height: 36px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+
+  .header-box-right {
+    font-family: cursive;
+    font-size: 20px;
+    float: right;
+    line-height: 36px;
+    margin-top: 18px;
+    color: #ccc;
+    margin-right: 300px;
+    cursor: pointer;
+  }
+
+  .header-box-right:hover {
+    color: pink;
+  }
+
+  .add {
+    width: 120px;
+    line-height: 30px;
+    background: pink;
+    margin-top: 10px;
+    margin-right: 34px;
+    border: 0;
+    font-size: 16px;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .add:hover {
+    background: #fff;
+    color: pink;
+  }
+
+
+
+  .list-address {
+    float: left;
+    width: 800px;
+    margin-left: 200px;
+  }
+
+  .list-address>span {
+    color: pink;
+    font-size: 20px;
+    margin-left: -80px;
+    float: left;
+    margin-top: 0px;
+    line-height: 100px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .left-add {
+    float: left;
+    height: 600px;
+    width: 400px;
+  }
+
+  .take-order>button {
+    font-size: 16px;
+    width: 60px;
+    margin-top: 40px;
+    cursor: pointer;
+    color: #fff;
+    height: 40px;
+    border: 0;
+    border-radius: 5px;
+    background: pink;
+  }
+
+  .take-order>button:hover {
+    background: #fff;
+    color: pink;
+  }
