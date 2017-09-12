@@ -68,10 +68,13 @@ nav {
 
 .nav-list {
   width: 1200px;
+  left: 50%;
+  margin-left: -600px;
   height: 50px;
   background: pink;
-  margin: auto;
   margin-bottom: 20px;
+  position: relative;
+  z-index: 100;
 }
 
 .nav-list li {
