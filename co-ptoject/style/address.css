@@ -1,6 +1,12 @@
-form {
-    padding-right: 970px;
+  form>p{
+    font-size: 20px;
+    color: pink;
+    line-height: 50px;
   }
+  form>label>input{
+    outline:none;
+  }
+    
   label {
     display: block;
     text-align: right;
@@ -82,5 +88,37 @@ form {
   margin-right:300px;
   cursor: pointer;
 }
-
-
+.add{
+  width: 120px;
+  line-height: 30px;
+  background: pink;
+  margin-top: 10px;
+  margin-right: 34px;
+  border: 0;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.add:hover{
+  background:#fff;
+  color: pink;
+}
+main{
+  margin-top: 30px;
+  float: right;
+  padding-right: 600px; 
+}
+main>span{
+  margin-left: -100px;
+  color: pink;
+  font-size: 20px;
+}
+.container{
+  width: 100%;
+}
+.left-add{
+  float: left;
+  height: 600px;
+  width:400px;
+}
