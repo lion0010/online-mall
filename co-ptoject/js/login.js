@@ -15,18 +15,11 @@ oBtn.onclick = function() {
     localStorage.username = json.data.username;
     console.log(localStorage.token);
     console.log(localStorage.username);
-<<<<<<< HEAD
     console.log(json.message)
-    if(json.message == "登录成功"){
-      location.href="../index.html";
-    }else{
-      alert("登陆失败，请重新登录")
-=======
-    if (json.code === 0) {
+    if (json.message == "登录成功") {
       location.href = "../index.html";
     } else {
-      alert("登录失败,请检测你的用户名和密码");
->>>>>>> c086addef1d2874f52c5c7cf2891dd99c802519a
+      alert("登陆失败，请重新登录")
     }
   });
 }
