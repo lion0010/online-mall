@@ -93,9 +93,9 @@
 }
 
 .TPL-username>input {
-  s padding-left: 10px;
+  padding-left: 10px;
   float: right;
-  width: 228px;
+  width: 218px;
   height: 36px;
   border-left: 0;
   margin-left: 10px;
