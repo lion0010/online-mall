@@ -16,5 +16,10 @@ oBtn.onclick = function() {
     localStorage.username = json.data.username;
     console.log(localStorage.token);
     console.log(localStorage.username);
+    if(json.code===0){
+      location.href="../index.html";
+    }else{
+      alert("登录失败,请检测你的用户名和密码");
+    }
   });
 }
