@@ -9,9 +9,7 @@
   <link rel="stylesheet" href="../style/main.css">
   <link rel="stylesheet" href="../style/cart.css">
   <title>Document</title>
-  <style>
-
-  </style>
+ 
 </head>
 
 <body>
@@ -43,7 +41,7 @@
     </ul>
   </header>
   <nav>
-    <a href="http://127.0.0.1:8080/index.html"><img src="../img/mao.gif" /></a>
+    <a href="../index.html"><img src="../img/mao.gif" /></a>
     <div id="search-text">
       <input id="search" type="text" placeholder="请输入要搜索的内容">
       <a href="search.html"><span>搜索</span></a>
@@ -82,8 +80,15 @@
         <td>操作</td>
       </tr>
     </table>
-    <div>小计：<span id="sum">0</span>
-      <input type="button" id="clear-cart" value="清空购物车"> <a id="order" href="order.html">结算</a></div>
+    <div>
+    	  <input id="clear-cart" value="清空购物车">
+    	  <div>
+    	  	<span id="total">合计：</span><span id="sum">0</span>
+      	  <a id="order" href="address.html">结算</a>
+    	  </div>
+      	
+      	
+    </div>
   </main>
   <script src="../js/myajax.js" charset="utf-8"></script>
   <script>
@@ -100,11 +105,11 @@
       oTable.innerHTML += `
                           <tr>
                             <td><img src="${obj.goods_thumb}" ></td>
-                            <td>${obj.goods_name}</td>
-                            <td>${obj.goods_price}</td>
-                            <td><input data-id="${obj.goods_id}" type="number" name="number" min="1" max="10" value="${obj.goods_number}" /></td>
-                            <td name="sum">￥${obj.goods_sum}</td>
-                            <td><input data-id="${obj.goods_id}" type="button" name="delete" value="删除"></td>
+                            <td class="goodsName">${obj.goods_name}</td>
+                            <td class="pink-color">${obj.goods_price}</td>
+                            <td><input data-id="${obj.goods_id}" type="number" class="number" name="number" min="1" max="10" value="${obj.goods_number}" /></td>
+                            <td name="sum" class="pink-color">￥${obj.goods_sum}</td>
+                            <td><input data-id="${obj.goods_id}" name="delete" value="删除" class="delete"></td>
                           </tr>
                           `;
     }

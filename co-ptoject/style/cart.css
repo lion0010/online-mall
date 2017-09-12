@@ -1,19 +1,54 @@
  main {
    width: 1000px;
    margin: auto;
+   font-size: 15px;
+   
  }
-
- table,
- td {
-   border: 1px solid pink;
+tr{
    padding: 10px;
    vertical-align: middle;
+   margin-top: 20px;
+   display: block;
+   border-radius: 20px;
+   background: #fcfcfc;
+   border: 1px solid #ccc;
+   
+}
+main>div{
+   padding: 10px;
+   vertical-align: middle;
+   margin-top: 30px;
+   background: #e5e5e5;
+   border-radius: 10px;
+   
+}
+ td{
+   width: 170px;
+   padding: 10px;
+   vertical-align: middle;
+   color: dodgerblue;
  }
-
+ main div div{
+ 	margin-right: 20px;
+ 	float: right;
+ 	display: inline-block;
+ 	
+ }
+ .pink-color{
+ 	color: #FF3366;
+ 	padding-left: 40px;
+ }
+.delete{
+	border: none;
+	outline: none;
+	cursor: pointer;
+	color: dodgerblue;
+	background: #fcfcfc;
+}
  table {
    border-collapse: collapse;
    width: 100%;
-   text-align: center;
+   
  }
 
  table img {
@@ -22,5 +57,27 @@
  }
 
  #order {
-   color: #000;
+   color: #FF3366;
+   font-size: 20px;
+   margin-left: 20px;
  }
+ #sum{
+ 	color: #FF3366;
+ }
+ #clear-cart{
+ 	cursor: pointer;
+ 	color: dodgerblue;
+ 	border: none;
+ 	outline: none;
+ 	text-align: center;
+ 	background: #e5e5e5;
+ 	margin-left: 10px;
+ }
+ #total{
+ 	color: dodgerblue;
+ 	
+ }
+.number{
+	margin-left: 20px;
+	width: 35px;
+}
