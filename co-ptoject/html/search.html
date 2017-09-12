@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../style/reset.css">
   <link rel="stylesheet" href="../style/main.css">
+  <link rel="stylesheet" href="">
   <title>Document</title>
 </head>
 <body>
@@ -100,11 +101,7 @@
       }
       for (var i = 0; i < data.length; i++) {
         var obj = data[i];
-        oGoods.innerHTML += `<li class="goods"><a href="goods.html?goods_id=${obj.goods_id}">
-          <div><img src="${obj.goods_thumb}" /></div>
-          <div>${obj.goods_name}</div>
-          <div>${obj.price}</div></a>
-        </li>`;
+        oGoods.innerHTML += `<div id="hot"><li><a href="goods.html?goods_id=${obj.goods_id}"><img src="${obj.goods_thumb}"/> <p>${obj.goods_name} </p><span>¥${obj.price}</span></a></li></div>`;
       }
     });
     </script>
