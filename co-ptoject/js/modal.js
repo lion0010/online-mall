@@ -17,7 +17,7 @@ Modal.prototype.bindEvent = function() {
     }
   }
 
-  this.oBtn.onclick = () => {
+  this.oBtn.onclick = function() {
     this.show();
   }
 }

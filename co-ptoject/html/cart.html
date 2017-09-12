@@ -57,17 +57,7 @@
   </nav>
   <div class="nav-list">
     <ul id="cat" class="cat"></ul>
-    <script>
-    var oCat = document.querySelector('#cat');
-    myajax.get('http://h6.duchengjiu.top/shop/api_cat.php', {}, function(error, responseText) {
-      var json = JSON.parse(responseText); //返回的整个json对象
-      var data = json.data; //json对象当中的data是一个数组
-      for (var i = 0; i < data.length; i++) {
-        var obj = data[i]; //数组里面的每一项是一个商品分类的对象
-        oCat.innerHTML += `<li><a href="list.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`;
-      }
-    });
-    </script>
+    <script src="../js/nav.js"></script>
   </div>
   <main>
     <table>
