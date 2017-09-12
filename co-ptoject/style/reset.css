@@ -84,14 +84,21 @@ time,
 mark,
 audio,
 video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    text-decoration: none;
-    color: #777;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  color: #777;
 }
+
+
+
+
+
+
+
 
 
 /* HTML5 display-role reset for older browsers */
@@ -107,32 +114,47 @@ hgroup,
 menu,
 nav,
 section {
-    display: block;
+  display: block;
 }
 
 body {
-    line-height: 1;
+  line-height: 1;
 }
 
 ol,
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 blockquote,
 q {
-    quotes: none;
+  quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-    content: '';
-    content: none;
+  content: '';
+  content: none;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.toast {
+  width: 200px;
+  text-align: center;
+  border-radius: 8px;
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
+  top: 50%;
+  padding: 10px 5px;
+  background: #000;
+  opacity: .8;
+  filter: alpha(opacity=80);
+  color: #fff;
 }

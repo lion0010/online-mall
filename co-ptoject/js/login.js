@@ -19,7 +19,7 @@ oBtn.onclick = function() {
     if (json.message == "登录成功") {
       location.href = "../index.html";
     } else {
-      alert("登陆失败，请重新登录")
+      toast("登陆失败，请重新登录")
     }
   });
 }
