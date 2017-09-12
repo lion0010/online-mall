@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,10 @@
   <link rel="stylesheet" href="../style/main.css">
   <title>Document</title>
 </head>
+
 <body>
-  
-    <script src="../js/myajax.js" charset="utf-8"></script>
-	<header>
+  <script src="../js/myajax.js" charset="utf-8"></script>
+  <header>
     <p>喵喵喵，欢迎小主</p>
     <ul>
       <li><a href="login.html" name="login" class="login">欢迎登录</a></li>
@@ -42,7 +43,7 @@
     <div id="search-text">
       <input id="search" type="text" placeholder="请输入要搜索的内容">
       <a href="search.html"><span>搜索</span></a>
-    <script>
+      <script>
       var oSearch = document.querySelector("#search");
       oSearch.onkeyup = function(event) {
         if (event.keyCode === 13) {
@@ -52,62 +53,54 @@
       </script>
     </div>
   </nav>
-   <div class="nav-list">
+  <div class="nav-list">
     <ul id="cat" class="cat"></ul>
     <script>
     var oCat = document.querySelector('#cat');
-    myajax.get('http://h6.duchengjiu.top/shop/api_cat.php', {}, function(error, responseText){
-        var json = JSON.parse(responseText);//返回的整个json对象
-        var data = json.data;//json对象当中的data是一个数组
-        for (var i = 0; i < data.length; i++) {
-          var obj = data[i];//数组里面的每一项是一个商品分类的对象
-          oCat.innerHTML += `<li><a href="list.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`;
-        }
+    myajax.get('http://h6.duchengjiu.top/shop/api_cat.php', {}, function(error, responseText) {
+      var json = JSON.parse(responseText); //返回的整个json对象
+      var data = json.data; //json对象当中的data是一个数组
+      for (var i = 0; i < data.length; i++) {
+        var obj = data[i]; //数组里面的每一项是一个商品分类的对象
+        oCat.innerHTML += `<li><a href="list.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`;
+      }
     });
     </script>
   </div>
-  
-
   <div class="goods-list">
     <ul id="hot-goods">
     </ul>
-  
-  
-  <script>
+    <script>
     var search_text = getQueryString('search_text');
     //name abc
     //123
     var oGoods = document.querySelector('#hot-goods');
-    myajax.get('http://h6.duchengjiu.top/shop/api_goods.php',
-    {search_text: search_text},
-    function(err,responseText){
-      var json = JSON.parse(responseText);
-      console.log(json);
-      var data = json.data;
-      //如果没数据要给出提示
-      if (data.length === 0) {
-        oGoods.innerHTML = "未搜索到商品, <span id='second'>5</span>秒后跳回首页";
-        var oSecond = oGoods.querySelector('#second');
-        var timer = setInterval(() => {
-          var second = parseInt(oSecond.innerText);
-          oSecond.innerText = --second;
-        }, 1000);
-        setTimeout(() => {
-          clearInterval(timer);
-          location.href = '../index.html';
-        }, 5000);
-        return;
-      }
-      for (var i = 0; i < data.length; i++) {
-        var obj = data[i];
-        oGoods.innerHTML += `<li class="goods"><a href="goods.html?goods_id=${obj.goods_id}">
-          <div><img src="${obj.goods_thumb}" /></div>
-          <div>${obj.goods_name}</div>
-          <div>${obj.price}</div></a>
-        </li>`;
-      }
-    });
+    myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', { search_text: search_text },
+      function(err, responseText) {
+        var json = JSON.parse(responseText);
+        console.log(json);
+        var data = json.data;
+        //如果没数据要给出提示
+        if (data.length === 0) {
+          oGoods.innerHTML = "未搜索到商品, <span id='second'>5</span>秒后跳回首页";
+          var oSecond = oGoods.querySelector('#second');
+          var timer = setInterval(() => {
+            var second = parseInt(oSecond.innerText);
+            oSecond.innerText = --second;
+          }, 1000);
+          setTimeout(() => {
+            clearInterval(timer);
+            location.href = '../index.html';
+          }, 5000);
+          return;
+        }
+        for (var i = 0; i < data.length; i++) {
+          var obj = data[i];
+          oGoods.innerHTML += `<div id="hot"><li><a href="goods.html?goods_id=${obj.goods_id}"><img src="${obj.goods_thumb}"/> <p>${obj.goods_name} </p><span>¥${obj.price}</span></a></li></div>`;
+        }
+      });
     </script>
-    </div>
+  </div>
 </body>
+
 </html>
