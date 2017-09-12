@@ -15,11 +15,19 @@ oBtn.onclick = function() {
     localStorage.username = json.data.username;
     console.log(localStorage.token);
     console.log(localStorage.username);
-    console.log(json.message)
+    // alert(json.message)
     if (json.message == "登录成功") {
       location.href = "../index.html";
-    } else {
-      alert("登陆失败，请重新登录")
+    }
+    
+    if(json.message === "少传参数username"){
+      alert("请输入用户名")
+    }
+    if(json.message === "密码最小长度为6位"){
+      alert("请输入密码，且密码最小长度为6位")
+    }
+    if(json.message === "密码错误"){
+      alert("登录失败，请检查用户名或密码")
     }
   });
 }
