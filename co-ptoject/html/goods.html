@@ -54,10 +54,6 @@
       </script>
     </div>
   </nav>
-  <div class="nav-list">
-    <ul id="cat" class="cat"></ul>
-    <script src="../js/nav.js"></script>
-  </div>
   <script>
   var goods_id = getQueryString('goods_id');
   console.log(goods_id);
@@ -70,10 +66,11 @@
     console.log(json);
     document.body.innerHTML += `
       <div class="goods-detail">
-        <div class="goods-detail-img">
+        <div id="smallPic" class="goods-detail-img">
           <img src="${obj.goods_thumb}">
-          <div></div>
+          <div id="zoom" class="zoom"></div>
         </div>
+        <div id="bigPic" class="bigPic"></div>
         <div class="goods-desc">
           <h3>${obj.goods_name}</h3>
           <p>${obj.goods_desc}</p>
@@ -83,6 +80,7 @@
 
       </div>
       `;
+    localStorage.imgurl = obj.goods_thumb;
   });
 
   document.body.onclick = function(event) {
@@ -101,6 +99,12 @@
     }
   }
   </script>
+ <script src="../js/magnifier.js"></script>
+<script>
+setTimeout(function() {
+  new magnifier("#smallPic", "#bigPic", "#zoom", localStorage.imgurl);
+}, 1000);
+</script>
 </body>
 
 </html>

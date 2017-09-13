@@ -21,7 +21,7 @@
   };
 
   function getAllTop(obj) {
-    var allTop = obj.offsetTop;
+    var allTop = obj.offsetTop + obj.getComputedStyle(height);
     while (obj = obj.offsetParent) {
       allTop += obj.offsetTop;
     }

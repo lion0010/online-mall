@@ -315,3 +315,17 @@ dd {
   font-size: 12px;
   text-align: center;
 }
+
+.backtotop {
+  position: fixed;
+  text-align: center;
+  width: 20px;
+  height: 100px;
+  right: 0px;
+  bottom: 20%;
+  background-color: pink;
+  display: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 1 1 1 1;
+}
