@@ -14,10 +14,19 @@ oSubmit.onclick = function(){
     var json = JSON.parse(responseText);
     console.log(json);
     if(json.message==="注册成功"){
-      alert('注册成功，2秒后跳转到登录界面');
+      toast('注册成功，2秒后跳转到登录界面');
       setTimeout(function(){
         location.href = 'login.html';
       },2000)
+    }
+    if(json.message === "少传参数username"){
+      toast("请输入用户名")
+    }
+    if(json.message === "密码最小长度为6位"){
+      toast("请输入密码，且密码最小长度为6位")
+    }
+    if(json.message === "密码错误"){
+      toast("登录失败，请检查用户名或密码")
     }
   });
 }

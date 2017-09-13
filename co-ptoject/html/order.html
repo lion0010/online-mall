@@ -11,43 +11,93 @@
   </style>
   <title>订单页</title>
   <style>
-  #order li {
-    border: 1px solid orange;
-  }
-
   #order li div.title {
-    background-color: #ccc;
+    background-color: #E5E5E5;
     line-height: 30px;
     padding: 5px;
-    border-bottom: 1px solid orange;
+    border-radius: 10px;
+   margin-bottom: 20px;
   }
-
-  #order li div.order-goods {
-    background-color: #333;
-  }
-
-  #order li div.order-goods div {
-    border-bottom: 1px solid orange;
-  }
-
-  #order li div.order-goods div img {
+.information{
+	font-size: 16px;
+	margin-left: 50px;
+	color: #FF6699;
+}
+ 
+  .goodsList ul li img {
     width: 100px;
+    border-radius: 50%;
   }
-
-  .cancel-order {
+ .goodsList{
+ 
+ 	background: #fcfcfc;
+ 	width: 1000px;
+ 	height: 100px;
+ 	margin-bottom: 20px;
+ 	border-radius: 20px;	
+ }
+ .goodsList ul{
+ 	width: 1000px;
+ 	height: 100px;
+ 	
+ }
+.goodsList ul li{
+	float: left;
+}
+.pic{
+	width: 150px;
+}
+.text{
+	height: 30px;
+	width: 150px;
+	margin-top: 40px;
+}
+.longName{
+	height: 30px;
+	width: 250px;
+	margin-top: 40px;
+	margin-right: 100px;
+}
+  .cancel{
     float: right;
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 5px;
-    background-color: orange;
+    background-color: #FF6699;
     color: white;
     cursor: pointer;
   }
 
-  .cancel-order:hover {
+  .cancel:hover {
     background-color: white;
-    color: orange;
+    color: #FF6699;
   }
+   main{
+   width: 1000px;
+   margin: auto;
+   font-size: 15px;
+   
+ }
+ .orderHead {
+   width: 1000px;
+   margin: auto;
+   height: 50px;
+   font-size: 15px;
+   margin-bottom: 20px;
+ }
+ .orderHead ul li{
+ 	float: left;
+ 	line-height: 50px;
+ 	text-align: center;
+ }
+ .headtext,.headpic{
+	width: 150px;
+}
+.headlongName{
+	width: 250px;
+	margin-right: 40px;
+}
+
   </style>
 </head>
 
@@ -98,8 +148,19 @@
     <ul id="cat" class="cat"></ul>
     <script src="../js/nav.js"></script>
   </div>
+
+  	<div class="orderHead">
+  		 <ul>
+  		 	<li class="headpic">图片</li>
+  			<li class="headlongName">名称</li>
+  			<li class="headtext">单价</li>
+  			<li class="headtext">数量</li>
+  			<li class="headtext">总价</li>
+  		 </ul>
+  	</div>
   <main>
-    <ul id="order">
+  	
+  	<ul id="order">
     </ul>
   </main>
   <script src="../js/myajax.js" charset="utf-8"></script>
@@ -120,22 +181,25 @@
       for (var j = 0; j < obj.goods_list.length; j++) {
         var goods = obj.goods_list[j];
         goodsHTML += `
-            <div>
-              ${goods.goods_name}
-              <img src="${goods.goods_thumb}">
-              单价：${goods.goods_price}
-              数量：${goods.goods_number}
-              小计：${goods.goods_price * goods.goods_number}
+            <div class="goodsList">
+            <ul>
+              <li class="pic"><img src="${goods.goods_thumb}"></li>
+              <li class="longName">${goods.goods_name}</li>
+              <li class="text">${goods.goods_price}</li>
+              <li class="text">${goods.goods_number}</li>
+              <li class="text">${goods.goods_price * goods.goods_number}</li>
+            </ul>
             </div>
           `;
       }
       //一件商品的总价
       oOrder.innerHTML += `
                           <li>
-                            <div class="title">收货人：${obj.consignee} 总价:${obj.total_prices} <span data-id="${obj.order_id}" class="cancel-order">取消订单</span></div>
-                            <div class="order-goods">
+                          <div class="order-goods">
                             ${goodsHTML}
                             </div>
+                            <div class="title"><span class="information">收货人：${obj.consignee}</span><span class="information">总价:${obj.total_prices}</span> <span data-id="${obj.order_id}" class="cancel" name="cancel">取消订单</span></div>
+                            
                           </li>
                           `;
     }
@@ -144,18 +208,27 @@
   oOrder.onclick = function(event) {
     event = event || window.event;
     var target = event.target || event.srcElement;
-    if (target.className === 'cancel-order') {
+    if (target.className === 'cancel') {
       if (!confirm('确认要取消订单吗?')) {
         return;
       }
       var order_id = target.dataset.id;
-      myajax.post('http://h6.duchengjiu.top/shop/api_order.php?token=' + localStorage.token + '&status=cancel', { order_id }, function(err, responseText) {
+      myajax.post("http://h6.duchengjiu.top/shop/api_order.php", { token: localStorage.token,status: 'cancel' }, function(err, responseText) {
         var json = JSON.parse(responseText);
         if (json.code === 0) {
-          alert('订单取消成功');
+        	toast('订单取消成功');
+      	target.parentNode.parentNode.removeChild(target.parentNode);
+        location.reload();
         }
       });
     }
+  
+//else {
+//    //先让所有li元素的样式清空
+//    var oOrderLis = oOrder.querySelectorAll('li');
+//    for (var i = 0; i < oOrderLis.length; i++) {
+//      oOrderLis[i].classList.remove('selected');
+//    }
   }
   </script>
   <div class="footer" style="border-top: 1px solid #000;margin-top: 360px;">
@@ -173,6 +246,7 @@
     <p>增值电信业务经营许可证： 浙B2-20110446&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 网络文化经营许可证：浙网文[2015]0295-065号</p>
     <p id="footer-box2">© 2003-2017 TMALL.COM 版权所有</p>
   </div>
+  <script src="../js/components.js"></script>
 </body>
 
 </html>

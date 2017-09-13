@@ -93,18 +93,24 @@
           var json = JSON.parse(responseText);
           console.log(json);
           if (json.code === 0) {
-            alert('添加到购物车成功');
+            toast('添加到购物车成功');
+          } else if (json.code === 1002) {
+            toast("未登录时，商品不能添加，3秒后将跳转到登陆页面")
+            var timer = setInterval(() => {
+              location.href = "../html/login.html"
+            }, 3000);
           }
         })
     }
   }
   </script>
- <script src="../js/magnifier.js"></script>
-<script>
-setTimeout(function() {
-  new magnifier("#smallPic", "#bigPic", "#zoom", localStorage.imgurl);
-}, 1000);
-</script>
+  <script src="../js/magnifier.js"></script>
+  <script>
+  setTimeout(function() {
+    new magnifier("#smallPic", "#bigPic", "#zoom", localStorage.imgurl);
+  }, 1000);
+  </script>
+  <script src="../js/components.js"></script>
 </body>
 
 </html>
