@@ -147,7 +147,7 @@ oShowAllAddress.addEventListener('click', function() {
   this.innerText = flag ? '显示全部地址' : '隐藏地址';
 });
 </script> -->
-  </div>
+
   <script>
   //ajax读取到收货地址并显示
   function showAddress() {
@@ -188,8 +188,6 @@ oShowAllAddress.addEventListener('click', function() {
   //     }
   //   });
   // }
-
-
   var selected_address_id = 0; //如果这个值为0，无法下订单，当点击一个收货地址时，给这个变量赋值
   //给收货地址添加一个事件代理
   var oAddressUl = document.querySelector('.address-ul');
@@ -198,7 +196,7 @@ oShowAllAddress.addEventListener('click', function() {
     var target = event.target || event.srcElement;
     console.log(target.nodeName);
     if (target.className === 'delete') {
-      if (!confirm('确认要删除收货地址吗？')) {
+      if (!toast('确认要删除收货地址吗？')) {
         return;
       }
       var address_id = target.dataset.id;
@@ -237,7 +235,7 @@ oShowAllAddress.addEventListener('click', function() {
   oOrder.onclick = function() {
     var address_id = selected_address_id;
     if (address_id === 0) {
-      alert('请选择一个收货地址');
+      toast('请选择一个收货地址');
       return;
     }
     var total_prices = localStorage.sum;
@@ -245,7 +243,7 @@ oShowAllAddress.addEventListener('click', function() {
       var json = JSON.parse(responseText);
       console.log(json);
       if (json.code === 0) {
-        alert('下订单成功');
+        toast('下订单成功');
         location.href = 'order.html';
       }
     });
@@ -270,6 +268,7 @@ oShowAllAddress.addEventListener('click', function() {
       });
     }
   </script> -->
+  <script src="../js/components.js"></script>
 </body>
 
 </html>

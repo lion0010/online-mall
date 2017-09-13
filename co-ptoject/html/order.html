@@ -152,7 +152,7 @@
       myajax.post('http://h6.duchengjiu.top/shop/api_order.php?token=' + localStorage.token + '&status=cancel', { order_id }, function(err, responseText) {
         var json = JSON.parse(responseText);
         if (json.code === 0) {
-          alert('订单取消成功');
+          toast('订单取消成功');
         }
       });
     }
@@ -173,6 +173,7 @@
     <p>增值电信业务经营许可证： 浙B2-20110446&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 网络文化经营许可证：浙网文[2015]0295-065号</p>
     <p id="footer-box2">© 2003-2017 TMALL.COM 版权所有</p>
   </div>
+  <script src="../js/components.js"></script>
 </body>
 
 </html>

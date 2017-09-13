@@ -21,13 +21,13 @@ oBtn.onclick = function() {
     }
     
     if(json.message === "少传参数username"){
-      alert("请输入用户名")
+      toast("请输入用户名")
     }
     if(json.message === "密码最小长度为6位"){
-      alert("请输入密码，且密码最小长度为6位")
+      toast("请输入密码，且密码最小长度为6位")
     }
     if(json.message === "密码错误"){
-      alert("登录失败，请检查用户名或密码")
+      toast("登录失败，请检查用户名或密码")
     }
   });
 }
