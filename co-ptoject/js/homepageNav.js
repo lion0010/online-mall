@@ -10,7 +10,7 @@
   });
   var topNav = document.querySelector('.nav-list');
   var topDis = getAllTop(topNav);
-  window.onscroll = function(e) {
+  window.addEventListener('scroll', function(e) {
     var nowTop = document.documentElement.scrollTop || document.body.scrollTop;
     if (nowTop >= topDis) {
       topNav.style.position = 'fixed';
@@ -18,7 +18,7 @@
     } else {
       topNav.style.position = 'relative';
     }
-  };
+  });
 
   function getAllTop(obj) {
     var allTop = obj.offsetTop;
