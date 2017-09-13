@@ -164,7 +164,7 @@
     width: 400px;
   }
 
-  .take-order>button {
+  .take-order button {
     font-size: 16px;
     width: 60px;
     margin-top: 40px;
@@ -176,7 +176,7 @@
     background: pink;
   }
 
-  .take-order>button:hover {
+  .take-order button:hover {
     background: #fff;
     color: pink;
   }
