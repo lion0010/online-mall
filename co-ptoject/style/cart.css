@@ -34,6 +34,12 @@ main>div{
  	display: inline-block;
  	
  }
+ .goodsId{
+ 	color: #FCFCFC;
+ }
+ .goodsName{
+ 	width: 250px;
+ }
  .pink-color{
  	color: #FF3366;
  	padding-left: 40px;
@@ -44,6 +50,12 @@ main>div{
 	cursor: pointer;
 	color: dodgerblue;
 	background: #fcfcfc;
+	width: 120px;
+	text-align: center;
+	float: left;
+}
+.deleteInput{
+	width: 200px;
 }
  table {
    border-collapse: collapse;
@@ -67,11 +79,7 @@ main>div{
  #clear-cart{
  	cursor: pointer;
  	color: dodgerblue;
- 	border: none;
- 	outline: none;
- 	text-align: center;
- 	background: #e5e5e5;
- 	margin-left: 10px;
+ 	margin-left: 50px;
  }
  #total{
  	color: dodgerblue;
