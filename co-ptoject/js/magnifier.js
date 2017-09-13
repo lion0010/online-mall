@@ -9,7 +9,7 @@ function magnifier(smallPicSelector, bigPicSelector, zoomSelector, bigImgPath) {
   //小图盒子400*400 放大镜200*200
   //放大镜总行程200 ，大图总行程400
   //rate = 600/200
-  rate = 1.5;
+  this.rate = 1.5;
   this.bindMouseEvent();
 }
 
