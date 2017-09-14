@@ -93,7 +93,7 @@
         var data = json.data; //json对象当中的data是一个数组
         for (var i = 0; i < data.length; i++) {
           var obj = data[i]; //数组里面的每一项是一个商品分类的对象
-          oGoods.innerHTML += `<div id="hot"><li><a href="html/goods.html?page=${obj.goods_id}"><img src="${obj.goods_thumb}"/> <p>${obj.goods_name} </p><span>¥${obj.price}</span></a></li></div>`;
+          oGoods.innerHTML += `<div id="hot"><li><a href="html/goods.html?goods_id=${obj.goods_id}"><img src="${obj.goods_thumb}"/> <p>${obj.goods_name} </p><span>¥${obj.price}</span></a></li></div>`;
         }
       });
 
@@ -112,7 +112,7 @@
             var obj = data[i]; //数组里面的每一项是一个商品分类的对象
             oGoods.innerHTML += `
           <div id="hot">
-          <li><a href="html/goods.html?page=${obj.goods_id}">
+          <li><a href="html/goods.html?goods_id=${obj.goods_id}">
           <img src="${obj.goods_thumb}"/>
           <p>${obj.goods_name}</p>
           <span>¥${obj.price}</span>

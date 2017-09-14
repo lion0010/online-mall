@@ -1,0 +1,98 @@
+#order li div.title {
+  background-color: #E5E5E5;
+  line-height: 30px;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.information {
+  font-size: 16px;
+  margin-left: 50px;
+  color: #FF6699;
+}
+
+.goodsList ul li img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.goodsList {
+
+  background: #fcfcfc;
+  width: 1000px;
+  height: 100px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.goodsList ul {
+  width: 1000px;
+  height: 100px;
+}
+
+.goodsList ul li {
+  float: left;
+}
+
+.pic {
+  width: 150px;
+}
+
+.text {
+  height: 30px;
+  width: 150px;
+  margin-top: 40px;
+}
+
+.longName {
+  height: 30px;
+  width: 250px;
+  margin-top: 40px;
+  margin-right: 100px;
+}
+
+.cancel {
+  float: right;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  background-color: #FF6699;
+  color: white;
+  cursor: pointer;
+}
+
+.cancel:hover {
+  background-color: white;
+  color: #FF6699;
+}
+
+main {
+  width: 1000px;
+  margin: auto;
+  font-size: 15px;
+}
+
+.orderHead {
+  width: 1000px;
+  margin: auto;
+  height: 50px;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.orderHead ul li {
+  float: left;
+  line-height: 50px;
+  text-align: center;
+}
+
+.headtext,
+.headpic {
+  width: 150px;
+}
+
+.headlongName {
+  width: 250px;
+  margin-right: 40px;
+}
