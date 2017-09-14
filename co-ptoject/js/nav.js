@@ -10,7 +10,7 @@
   });
   var topNav = document.querySelector('.nav-list');
   var topDis = getAllTop(topNav);
-  window.addEventListener(scroll, function(e) {
+  window.addEventListener('scroll', function(e) {
     var nowTop = document.documentElement.scrollTop || document.body.scrollTop;
     if (nowTop >= topDis) {
       topNav.style.position = 'fixed';
@@ -20,12 +20,11 @@
     }
   });
 
-
   function getAllTop(obj) {
-    var allTop = obj.offsetTop + obj.getComputedStyle(height);
+    var allTop = obj.offsetTop;
     while (obj = obj.offsetParent) {
       allTop += obj.offsetTop;
-
     }
+    return allTop;
   }
 })();

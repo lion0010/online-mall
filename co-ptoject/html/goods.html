@@ -83,6 +83,8 @@
       </div>
       `;
             localStorage.imgurl = obj.goods_thumb;
+            new magnifier("#smallPic", "#bigPic", "#zoom", localStorage.imgurl);
+
         });
 
         document.body.onclick = function(event) {
@@ -110,11 +112,6 @@
         }
     </script>
     <script src="../js/magnifier.js"></script>
-    <script>
-        setTimeout(function() {
-            new magnifier("#smallPic", "#bigPic", "#zoom", localStorage.imgurl);
-        }, 1000);
-    </script>
     <script src="../js/components.js"></script>
 </body>
 

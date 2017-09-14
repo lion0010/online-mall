@@ -2,14 +2,16 @@ function magnifier(smallPicSelector, bigPicSelector, zoomSelector, bigImgPath) {
     this.oSmallPic = document.querySelector(smallPicSelector);
     this.oBigPic = document.querySelector(bigPicSelector);
     this.oZoom = document.querySelector(zoomSelector);
-    this.oBigPic.style.backgroundImage = 'url(' + bigImgPath + ')';
-    this.oBigPic.style.backgroundSize = '150%';
-    this.oBigPic.style.backgroundReat = "no-repeat";
+    this.oBigPic.style.backgroundImage = 'url(' + localStorage.imgurl + ')';
+    console.log(localStorage.bigImgPath);
+    this.oBigPic.style.backgroundSize = '800px 800px';
+    this.oBigPic.style.backgroundRepeat = "no-repeat";
+
     //大图600*600 盒子400*400
     //小图盒子400*400 放大镜200*200
     //放大镜总行程200 ，大图总行程400
     //rate = 600/200
-    this.rate = 1.5;
+    this.rate = 2;
     this.bindMouseEvent();
 }
 

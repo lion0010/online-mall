@@ -101,29 +101,26 @@ oAddressUl.onclick = function(event) {
         console.log(address_id);
 
         confirm('您确定删除这条地址信息吗？', function() {
-                myajax.get('http://h6.duchengjiu.top/shop/api_useraddress.php', {
+            myajax.get('http://h6.duchengjiu.top/shop/api_useraddress.php', {
                     status: 'delete',
                     address_id,
                     token: localStorage.token
                 }, function(error, responseText) {
                     var json = JSON.parse(responseText);
                     if (json.code === 0) {
-                        return;
-                    } else {
                         target.parentNode.parentNode.removeChild(target.parentNode);
                         toast("地址删除成功");
-                        location.reload();
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
                     }
-                })
-                location.reload();
-            },
-            function() {
+                },
+                function() {
+                    return;
+                }
+            )
 
-                return;
-            }
-        )
-
-
+        })
     } else {
         //先让所有li元素的样式清空
         var oAddressLis = oAddressUl.querySelectorAll('li');
@@ -163,26 +160,6 @@ oOrder.onclick = function() {
         console.log(json);
         if (json.code === 0) {
             toast('下订单成功');
-
-
         }
     });
-
 }
-
-
-
-
-// //给添加按钮添加事件
-// var oAdd = document.querySelector('.add');
-// oAdd.onclick = function() {
-//   var postobj = serializeForm(document.querySelector('form'));
-//   myajax.post('http://h6.duchengjiu.top/shop/api_useraddress.php?status=add&token='+localStorage.token, postobj, function(err, responseText){
-//     var json = JSON.parse(responseText);
-//     console.log(json);
-//     if (json.code === 0) {
-
-//       showAddress();
-//     }
-//   });
-// }

@@ -64,7 +64,7 @@
         <script src="../js/nav.js"></script>
         <script src="../js/confirm.js"></script>
     </div>
-
+    </nav>
     <div class="orderHead">
         <ul>
             <li class="headpic">图片</li>
@@ -75,10 +75,10 @@
         </ul>
     </div>
     <main>
-
         <ul id="order">
         </ul>
     </main>
+    <script src="../js/myajax.js" charset="utf-8"></script>
     <script>
         var oOrder = document.querySelector('#order');
         myajax.get('http://h6.duchengjiu.top/shop/api_order.php', {
@@ -116,7 +116,7 @@
                             ${goodsHTML}
                             </div>
                             <div class="title"><span class="information">收货人：${obj.consignee}</span><span class="information">总价:${obj.total_prices}</span> <span data-id="${obj.order_id}" class="cancel" name="cancel">取消订单</span></div>
-                            
+
                           </li>
                           `;
             }
@@ -126,7 +126,6 @@
             event = event || window.event;
             var target = event.target || event.srcElement;
             if (target.className === 'cancel') {
-
                 var order_id = target.dataset.id;
                 confirm('您确定删除订单吗？', function() {
                         myajax.post("http://h6.duchengjiu.top/shop/api_order.php?token=" +
@@ -167,6 +166,29 @@
         <p id="footer-box2">© 2003-2017 TMALL.COM 版权所有</p>
     </div>
     <script src="../js/components.js"></script>
+    <!-- ======= oOrder.onclick = function(event) { event = event || window.event; var target = event.target || event.srcElement; if (target.className === 'cancel') { if (!confirm('确认要取消订单吗?')) { return; } var order_id = target.dataset.id; myajax.post("http://h6.duchengjiu.top/shop/api_order.php?token="
+    + localStorage.token + "&status=cancel", { order_id }, function(err, responseText) { var json = JSON.parse(responseText); if (json.code === 0) { console.log(json); target.parentNode.parentNode.parentNode.removeChild(target.parentNode.parentNode);
+    toast('订单取消成功'); } }); } }
+    </script> -->
+    <div class="footer" style="border-top: 1px solid #000;margin-top: 360px;">
+        <p id="footer-box">
+            <a href="#">关于天猫</a>
+            <a href="#">帮助中心</a>
+            <a href="#">开放平台</a>
+            <a href="#"> 诚聘英才</a>
+            <a href="">联系我们</a>
+            <a href="">网站合作</a>
+            <a href="">法律声明及隐私权政策</a>
+            <a href="">知识产权</a>
+            <a href="">廉正举报</a>
+        </p>
+        <p>增值电信业务经营许可证： 浙B2-20110446&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            网络文化经营许可证：浙网文[2015]0295-065号
+        </p>
+        <p id="footer-box2">© 2003-2017 TMALL.COM 版权所有</p>
+    </div>
+    <script src="../js/components.js"></script>
+    >>>>>>> 2663bdd39e81558d23559b8c1ad8266c6d8cfdd1
 </body>
 
 </html>
