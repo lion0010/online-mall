@@ -85,15 +85,48 @@
     <span>❤热卖单品</span>
     <ul id="hot-goods"></ul>
     <script>
+    var pageNum = 1;
     var oGoods = document.querySelector('#hot-goods');
-    myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', {}, function(error, responseText) {
-      var json = JSON.parse(responseText); //返回的整个json对象
-      var data = json.data; //json对象当中的data是一个数组
-      for (var i = 0; i < data.length; i++) {
-        var obj = data[i]; //数组里面的每一项是一个商品分类的对象
-        oGoods.innerHTML += `<div id="hot"><li><a href="html/goods.html?goods_id=${obj.goods_id}"><img src="${obj.goods_thumb}"/> <p>${obj.goods_name} </p><span>¥${obj.price}</span></a></li></div>`;
+    if (oGoods.innerHTML === "") {
+      myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', { page: pageNum, pagesize: '12' }, function(error, responseText) {
+        var json = JSON.parse(responseText); //返回的整个json对象
+        var data = json.data; //json对象当中的data是一个数组
+        for (var i = 0; i < data.length; i++) {
+          var obj = data[i]; //数组里面的每一项是一个商品分类的对象
+          oGoods.innerHTML += `<div id="hot"><li><a href="html/goods.html?page=${obj.goods_id}"><img src="${obj.goods_thumb}"/> <p>${obj.goods_name} </p><span>¥${obj.price}</span></a></li></div>`;
+        }
+      });
+
+    }
+
+    window.addEventListener('scroll', function(event) {
+      var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+      console.log(scrolltop);
+      console.log(event.clientHeight);
+      if (scrolltop > (document.body.scrollHeight - document.body.clientHeight + 200)) {
+        pageNum++;
+        myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', { page: pageNum, pagesize: '12' }, function(error, responseText) {
+          var json = JSON.parse(responseText); //返回的整个json对象
+          var data = json.data; //json对象当中的data是一个数组
+          for (var i = 0; i < data.length; i++) {
+            var obj = data[i]; //数组里面的每一项是一个商品分类的对象
+            oGoods.innerHTML += `
+          <div id="hot">
+          <li><a href="html/goods.html?page=${obj.goods_id}">
+          <img src="${obj.goods_thumb}"/>
+          <p>${obj.goods_name}</p>
+          <span>¥${obj.price}</span>
+          </a>
+          </li>
+          </div>`;
+          }
+        });
       }
-    });
+    })
+
+
+    //获取到clientHeight,取它的1/2保存为一个变量x
+    //然后添加页面滚动事件，当
     </script>
   </div>
   <a href="javascript:;" class="backtotop" id="backtotop"> ^  ^ 回到顶部</a>
@@ -214,10 +247,10 @@
     </div>
   </footer>
   <a href="javascript:;" class="backtotop" id="backtotop">回到顶部</a>
-	<script src="js/backtotop.js" ></script>
-	<script>	
-		var backtotop = new BackToTop('#backtotop');
-	</script>
+  <script src="js/backtotop.js"></script>
+  <script>
+  var backtotop = new BackToTop('#backtotop');
+  </script>
 </body>
 
 </html>

@@ -242,6 +242,7 @@ footer {
   width: 100%;
   background-size: 100% 800px;
   padding-top: 20px;
+  float: left;
 }
 
 footer>div {
