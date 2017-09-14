@@ -85,7 +85,21 @@ main>div{
  	color: dodgerblue;
  	
  }
-.number{
-	margin-left: 20px;
-	width: 35px;
+#less,#add{
+    width:25px;
+    height: 25px;
+    margin: 0;
+    text-align: center;
+    line-height: 100%;
+    border: none;
+    outline: none;
+}
+.inputnum{
+    width:25px;
+    height: 2rem;
+    
+    padding: 0;
+    border: 0;
+    text-align: center;
+    outline: none;
 }

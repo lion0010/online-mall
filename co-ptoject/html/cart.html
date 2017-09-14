@@ -99,7 +99,7 @@
                             <td><img src="${obj.goods_thumb}" ></td>
                             <td class="goodsName" name="goods_name">${obj.goods_name}</td>
                             <td class="pink-color">${obj.goods_price}</td>
-                            <td><input data-id="${obj.goods_id}" type="number" class="number" name="number" min="1" max="10" value="${obj.goods_number}" /></td>
+                            <td><button id="less">-</button><input data-id="${obj.goods_id}" class="inputnum" name="number" min="1" max="10"  value="${obj.goods_number}" /><button id="add">+</button></td>
                             <td name="sum" class="pink-color">￥${obj.goods_sum}</td>
                             <td class="deleteInput"><input data-id="${obj.goods_id}" name="delete" value="删除" class="delete"></td>
                           </tr>
@@ -107,8 +107,7 @@
     }
     getSum();
   });
-
-  oTable.onchange = function(event) {
+oTable.onchange = function(event) {
     event = event || window.event;
     var target = event.target || event.srcElement;
     //如果输入的内容不是数字，我们默认改成1
@@ -138,7 +137,7 @@
           }
         })
     }
-  }
+}
   oTable.addEventListener('click', function(event) {
     event = event || window.event;
     var target = event.target || event.srcElement;
