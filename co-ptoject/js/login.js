@@ -19,7 +19,9 @@ oBtn.addEventListener("click", function() {
         if (json.message == "登录成功") {
             location.href = "../index.html";
         }
-
+        if (json.message == "用户名不合法，请填写3-20位的英文数字下划线") {
+            toast("用户名格式不正确，请填写3-20位的英文数字组成的用户名格式")
+        }
         if (json.message === "少传参数username") {
             toast("请输入用户名")
         }

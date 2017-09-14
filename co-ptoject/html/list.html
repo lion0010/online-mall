@@ -2,186 +2,190 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <title>商品列表</title>
-  <link rel="stylesheet" href="../style/reset.css">
-  <link rel="stylesheet" href="../style/main.css">
+    <meta charset="UTF-8">
+    <title>商品列表</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/main.css">
 </head>
 
 <body>
-  <script src="../js/myajax.js" charset="utf-8"></script>
-  <header>
-    <p>喵喵喵，欢迎小主</p>
-    <ul>
-      <li><a href="login.html" name="login" class="login">欢迎登录</a></li>
-      <li><a href="register.html" name="register" class="register">免费注册</a></li>
-      <li><a href="#" name="username" class="username">小主</a></li>
-      <li><a href="javascript:localStorage.clear(); location.reload();" class="logout">退出</a></li>
-      <script>
-      //判断用户名如果存在, 则显示用户名并显示退出按钮, 否则显示注册和登录
-      if (localStorage.username) {
-        var oUsername = document.querySelector('a[name=username]');
-        var oLogout = document.querySelector('.logout');
-        oUsername.innerText = localStorage.username;
-        oUsername.style.display = 'inline';
-        oLogout.style.display = 'inline';
-      } else {
-        var oRegister = document.querySelector('.register');
-        var oLogin = document.querySelector('.login');
-        oRegister.style.display = 'inline';
-        oLogin.style.display = 'inline';
-      }
-      </script>
-      <li><a href="cart.html">购物车</a></li>
-      <li><a href="order.html">我的订单</a></li>
-    </ul>
-  </header>
-  <nav>
-    <a href="../index.html"><img src="../img/mao.gif" /></a>
-    <div id="search-text">
-      <input id="search" type="text" placeholder="请输入要搜索的内容">
-      <a href="search.html"><span>搜索</span></a>
-      <script>
-      var oSearch = document.querySelector("#search");
-      oSearch.onkeyup = function(event) {
-        if (event.keyCode === 13) {
-          location.href = 'search.html?search_text=' + this.value;
-        }
-      }
-      </script>
+    <script src="../js/myajax.js" charset="utf-8"></script>
+    <header>
+        <div class="header-list">
+            <p>喵喵喵，欢迎小主</p>
+            <ul>
+                <li><a href="login.html" name="login" class="login">欢迎登录</a></li>
+                <li><a href="register.html" name="register" class="register">免费注册</a></li>
+                <li><a href="#" name="username" class="username">小主</a></li>
+                <li><a href="javascript:localStorage.clear(); location.reload();" class="logout">退出</a></li>
+                <script>
+                    //判断用户名如果存在, 则显示用户名并显示退出按钮, 否则显示注册和登录
+                    if (localStorage.username) {
+                        var oUsername = document.querySelector('a[name=username]');
+                        var oLogout = document.querySelector('.logout');
+                        oUsername.innerText = localStorage.username;
+                        oUsername.style.display = 'inline';
+                        oLogout.style.display = 'inline';
+                    } else {
+                        var oRegister = document.querySelector('.register');
+                        var oLogin = document.querySelector('.login');
+                        oRegister.style.display = 'inline';
+                        oLogin.style.display = 'inline';
+                    }
+                </script>
+                <li><a href="cart.html">购物车</a></li>
+                <li><a href="order.html">我的订单</a></li>
+            </ul>
+        </div>
+    </header>
+    <nav>
+        <a href="../index.html"><img src="../img/mao.gif" /></a>
+        <div id="search-text">
+            <input id="search" type="text" placeholder="请输入要搜索的内容">
+            <a href="search.html"><span>搜索</span></a>
+            <script>
+                var oSearch = document.querySelector("#search");
+                oSearch.onkeyup = function(event) {
+                    if (event.keyCode === 13) {
+                        location.href = 'search.html?search_text=' + this.value;
+                    }
+                }
+            </script>
+        </div>
+    </nav>
+    <div class="nav-list">
+        <ul id="cat" class="cat"></ul>
+        <script src="../js/nav.js"></script>
     </div>
-  </nav>
-  <div class="nav-list">
-    <ul id="cat" class="cat"></ul>
-    <script src="../js/nav.js"></script>
-  </div>
-  <div class="goods-list">
-    <ul id="hot-goods"></ul>
-    <script>
-    var oGoods = document.querySelector('#hot-goods');
-    var cat_id = getQueryString("cat_id");
-    myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', { cat_id: cat_id }, function(error, responseText) {
-      var json = JSON.parse(responseText); //返回的整个json对象
-      var data = json.data; //json对象当中的data是一个数组
-      for (var i = 0; i < data.length; i++) {
-        var obj = data[i]; //数组里面的每一项是一个商品分类的对象
-        oGoods.innerHTML += `<div id="hot"><li><a href="goods.html?goods_id=${obj.goods_id}"><img src="${obj.goods_thumb}"/> <p>${obj.goods_name} </p><span>¥ ${obj.price}</span></a></li></div>`;
-      }
-    });
-    </script>
-  </div>
-  <footer>
-    <div>
-      <div class="up">
-        <div class="zheng">
-          <img src="../img/zheng.jpg" />
-          <p>正品保障
-            <br/>正品保障，提供发货</p>
-        </div>
-        <div class="shou">
-          <img src="../img/shou.jpg" />
-          <p>正品保障
-            <br/>正品保障，提供发货</p>
-        </div>
-        <div class="te">
-          <img src="../img/te.jpg" />
-          <p>正品保障
-            <br/>正品保障，提供发货</p>
-        </div>
-        <div class="help">
-          <img src="../img/help.jpg" />
-          <p>正品保障
-            <br/>正品保障，提供发货</p>
-        </div>
-      </div>
-      <div class="down">
-        <dl>
-          <dt>购物指南</dt>
-          <dd>免费注册</dd>
-          <dd>开通支付宝</dd>
-          <dd>支付宝充值</dd>
-        </dl>
-        <dl>
-          <dt>天猫保障</dt>
-          <dd>发票保障</dd>
-          <dd>售后规则</dd>
-          <dd>缺货赔付</dd>
-        </dl>
-        <dl>
-          <dt>支付方式</dt>
-          <dd>快捷支付</dd>
-          <dd>信用卡</dd>
-          <dd>余额宝</dd>
-          <dd>蚂蚁花呗</dd>
-          <dd>货到付款</dd>
-        </dl>
-        <dl>
-          <dt>商家服务</dt>
-          <dd>商家入驻</dd>
-          <dd>商家中心</dd>
-          <dd>天猫智库</dd>
-          <dd>天猫规则</dd>
-          <dd>物流服务</dd>
-          <dd>喵言喵语</dd>
-          <dd>运营服务</dd>
-        </dl>
-        <dl>
-          <dt>手机天猫</dt>
-          <dd><img src="../img/ma.png" /></dd>
-        </dl>
-      </div>
-      <div class="foot">
-        <ul>
-          <li>关于天猫</li>
-          <li>帮助中心</li>
-          <li>开放平台</li>
-          <li>诚聘英才</li>
-          <li>联系我们</li>
-          <li>网站合作</li>
-          <li>法律声明及隐私权政策</li>
-          <li>知识产权</li>
-          <li>廉政举报</li>
-          <li>规则意见征集</li>
-        </ul>
-        <ul>
-          <li>阿里巴巴集团</li>
-          <li>淘宝网</li>
-          <li>天猫</li>
-          <li>聚划算</li>
-          <li>全球速变通</li>
-          <li>阿里巴巴国际交易市场</li>
-          <li>1688</li>
-          <li>阿里妈妈</li>
-          <li>飞猪</li>
-          <li>阿里云计算</li>
-          <li>YunOS</li>
-          <li>阿里通信</li>
-          <li>万网</li>
-          <li>高德</li>
-          <li>UC</li>
-          <li>友盟</li>
-          <li>虾米</li>
-          <li>阿里星球</li>
-          <li>来往</li>
-          <li>钉钉</li>
-          <li>支付宝</li>
-        </ul>
-        <ul>
-          <li>增值电信业务经营许可证：浙B2-20110446</li>
-          <li>网络文化经营许可证：浙网文[2015]0295-065号</li>
-          <li>12318举报</li>
-        </ul>
-        <ul>
-          <li>互联网药品信息服务资质证书编号：浙-（经营性）-2017-0005</li>
-          <li><img src="" />折公网安备33010002000120号</li>
-        </ul>
-        <p>2003-2017 TMALL.COM版权所有</tmall>
-        </p>
-        <img src="" />
-        <img src="" />
-      </div>
+    <div class="goods-list">
+        <ul id="hot-goods"></ul>
+        <script>
+            var oGoods = document.querySelector('#hot-goods');
+            var cat_id = getQueryString("cat_id");
+            myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', {
+                cat_id: cat_id
+            }, function(error, responseText) {
+                var json = JSON.parse(responseText); //返回的整个json对象
+                var data = json.data; //json对象当中的data是一个数组
+                for (var i = 0; i < data.length; i++) {
+                    var obj = data[i]; //数组里面的每一项是一个商品分类的对象
+                    oGoods.innerHTML += `<div id="hot"><li><a href="goods.html?goods_id=${obj.goods_id}"><img src="${obj.goods_thumb}"/> <p>${obj.goods_name} </p><span>¥ ${obj.price}</span></a></li></div>`;
+                }
+            });
+        </script>
     </div>
-  </footer>
+    <footer>
+        <div>
+            <div class="up">
+                <div class="zheng">
+                    <img src="../img/zheng.jpg" />
+                    <p>正品保障
+                        <br/>正品保障，提供发货</p>
+                </div>
+                <div class="shou">
+                    <img src="../img/shou.jpg" />
+                    <p>正品保障
+                        <br/>正品保障，提供发货</p>
+                </div>
+                <div class="te">
+                    <img src="../img/te.jpg" />
+                    <p>正品保障
+                        <br/>正品保障，提供发货</p>
+                </div>
+                <div class="help">
+                    <img src="../img/help.jpg" />
+                    <p>正品保障
+                        <br/>正品保障，提供发货</p>
+                </div>
+            </div>
+            <div class="down">
+                <dl>
+                    <dt>购物指南</dt>
+                    <dd>免费注册</dd>
+                    <dd>开通支付宝</dd>
+                    <dd>支付宝充值</dd>
+                </dl>
+                <dl>
+                    <dt>天猫保障</dt>
+                    <dd>发票保障</dd>
+                    <dd>售后规则</dd>
+                    <dd>缺货赔付</dd>
+                </dl>
+                <dl>
+                    <dt>支付方式</dt>
+                    <dd>快捷支付</dd>
+                    <dd>信用卡</dd>
+                    <dd>余额宝</dd>
+                    <dd>蚂蚁花呗</dd>
+                    <dd>货到付款</dd>
+                </dl>
+                <dl>
+                    <dt>商家服务</dt>
+                    <dd>商家入驻</dd>
+                    <dd>商家中心</dd>
+                    <dd>天猫智库</dd>
+                    <dd>天猫规则</dd>
+                    <dd>物流服务</dd>
+                    <dd>喵言喵语</dd>
+                    <dd>运营服务</dd>
+                </dl>
+                <dl>
+                    <dt>手机天猫</dt>
+                    <dd><img src="../img/ma.png" /></dd>
+                </dl>
+            </div>
+            <div class="foot">
+                <ul>
+                    <li>关于天猫</li>
+                    <li>帮助中心</li>
+                    <li>开放平台</li>
+                    <li>诚聘英才</li>
+                    <li>联系我们</li>
+                    <li>网站合作</li>
+                    <li>法律声明及隐私权政策</li>
+                    <li>知识产权</li>
+                    <li>廉政举报</li>
+                    <li>规则意见征集</li>
+                </ul>
+                <ul>
+                    <li>阿里巴巴集团</li>
+                    <li>淘宝网</li>
+                    <li>天猫</li>
+                    <li>聚划算</li>
+                    <li>全球速变通</li>
+                    <li>阿里巴巴国际交易市场</li>
+                    <li>1688</li>
+                    <li>阿里妈妈</li>
+                    <li>飞猪</li>
+                    <li>阿里云计算</li>
+                    <li>YunOS</li>
+                    <li>阿里通信</li>
+                    <li>万网</li>
+                    <li>高德</li>
+                    <li>UC</li>
+                    <li>友盟</li>
+                    <li>虾米</li>
+                    <li>阿里星球</li>
+                    <li>来往</li>
+                    <li>钉钉</li>
+                    <li>支付宝</li>
+                </ul>
+                <ul>
+                    <li>增值电信业务经营许可证：浙B2-20110446</li>
+                    <li>网络文化经营许可证：浙网文[2015]0295-065号</li>
+                    <li>12318举报</li>
+                </ul>
+                <ul>
+                    <li>互联网药品信息服务资质证书编号：浙-（经营性）-2017-0005</li>
+                    <li><img src="" />折公网安备33010002000120号</li>
+                </ul>
+                <p>2003-2017 TMALL.COM版权所有</tmall>
+                </p>
+                <img src="" />
+                <img src="" />
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

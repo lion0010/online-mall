@@ -16,7 +16,7 @@
     oP.onclick = function(){
       confirm('确认要删除吗？', function(){
         console.log('删除成功');
-        document.body.removeChild(oP);
+         oMask.parentNode.removeChild(oP);
       }, function(){
         console.log('取消删除');
       });

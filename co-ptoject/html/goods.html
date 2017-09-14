@@ -2,69 +2,71 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>商品详情页</title>
-  <link rel="stylesheet" href="../style/reset.css">
-  <link rel="stylesheet" href="../style/main.css">
-  <link rel="stylesheet" href="../style/goods.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商品详情页</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/goods.css">
 </head>
 
 <body>
-  <script src="../js/myajax.js" charset="utf-8"></script>
-  <header>
-    <p>喵喵喵，欢迎小主</p>
-    <ul>
-      <li><a href="login.html" name="login" class="login">欢迎登录</a></li>
-      <li><a href="register.html" name="register" class="register">免费注册</a></li>
-      <li><a href="#" name="username" class="username">小主</a></li>
-      <li><a href="javascript:<!-- localStorage.clear(); location.reload(); -->" class="logout">退出</a></li>
-      <script>
-      //判断用户名如果存在, 则显示用户名并显示退出按钮, 否则显示注册和登录
-      if (localStorage.username) {
-        var oUsername = document.querySelector('a[name=username]');
-        var oLogout = document.querySelector('.logout');
-        oUsername.innerText = localStorage.username;
-        oUsername.style.display = 'block';
-        oLogout.style.display = 'block';
-      } else {
-        var oRegister = document.querySelector('.register');
-        var oLogin = document.querySelector('.login');
-        oRegister.style.display = 'block';
-        oLogin.style.display = 'block';
-      }
-      </script>
-      <li><a href="cart.html">购物车</a></li>
-      <li><a href="order.html">我的订单</a></li>
-    </ul>
-  </header>
-  <nav>
-    <a href="../index.html"><img src="../img/mao.gif" /></a>
-    <div id="search-text">
-      <input id="search" type="text" placeholder="请输入要搜索的内容">
-      <a href="search.html"><span>搜索</span></a>
-      <script>
-      var oSearch = document.querySelector("#search");
-      oSearch.onkeyup = function(event) {
-        if (event.keyCode === 13) {
-          location.href = 'html/search.html?search_text=' + this.value;
-        }
-      }
-      </script>
-    </div>
-  </nav>
-  <script>
-  var goods_id = getQueryString('goods_id');
-  console.log(goods_id);
-  myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', {
-    // goods_id: goods_id ES5
-    goods_id //ES6
-  }, function(err, responseText) {
-    var json = JSON.parse(responseText);
-    var obj = json.data[0];
-    console.log(json);
-    document.body.innerHTML += `
+    <script src="../js/myajax.js" charset="utf-8"></script>
+    <header>
+        <div class="header-list">
+            <p>喵喵喵，欢迎小主</p>
+            <ul>
+                <li><a href="login.html" name="login" class="login">欢迎登录</a></li>
+                <li><a href="register.html" name="register" class="register">免费注册</a></li>
+                <li><a href="#" name="username" class="username">小主</a></li>
+                <li><a href="javascript:<!-- localStorage.clear(); location.reload(); -->" class="logout">退出</a></li>
+                <script>
+                    //判断用户名如果存在, 则显示用户名并显示退出按钮, 否则显示注册和登录
+                    if (localStorage.username) {
+                        var oUsername = document.querySelector('a[name=username]');
+                        var oLogout = document.querySelector('.logout');
+                        oUsername.innerText = localStorage.username;
+                        oUsername.style.display = 'block';
+                        oLogout.style.display = 'block';
+                    } else {
+                        var oRegister = document.querySelector('.register');
+                        var oLogin = document.querySelector('.login');
+                        oRegister.style.display = 'block';
+                        oLogin.style.display = 'block';
+                    }
+                </script>
+                <li><a href="cart.html">购物车</a></li>
+                <li><a href="order.html">我的订单</a></li>
+            </ul>
+        </div>
+    </header>
+    <nav>
+        <a href="../index.html"><img src="../img/mao.gif" /></a>
+        <div id="search-text">
+            <input id="search" type="text" placeholder="请输入要搜索的内容">
+            <a href="search.html"><span>搜索</span></a>
+            <script>
+                var oSearch = document.querySelector("#search");
+                oSearch.onkeyup = function(event) {
+                    if (event.keyCode === 13) {
+                        location.href = 'html/search.html?search_text=' + this.value;
+                    }
+                }
+            </script>
+        </div>
+    </nav>
+    <script>
+        var goods_id = getQueryString('goods_id');
+        console.log(goods_id);
+        myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', {
+            // goods_id: goods_id ES5
+            goods_id //ES6
+        }, function(err, responseText) {
+            var json = JSON.parse(responseText);
+            var obj = json.data[0];
+            console.log(json);
+            document.body.innerHTML += `
       <div class="goods-detail">
         <div id="smallPic" class="goods-detail-img">
           <img src="${obj.goods_thumb}">
@@ -80,37 +82,40 @@
 
       </div>
       `;
-    localStorage.imgurl = obj.goods_thumb;
-  });
+            localStorage.imgurl = obj.goods_thumb;
+        });
 
-  document.body.onclick = function(event) {
-    event = event || window.event;
-    var target = event.target || event.srcElement;
-    if (target.id === 'add-to-cart') {
-      console.log('添加到购物车');
-      myajax.post('http://h6.duchengjiu.top/shop/api_cart.php?token=' + localStorage.token, { goods_id, number: 1 },
-        function(err, responseText) {
-          var json = JSON.parse(responseText);
-          console.log(json);
-          if (json.code === 0) {
-            toast('添加到购物车成功');
-          } else if (json.code === 1002) {
-            toast("未登录时，商品不能添加，3秒后将跳转到登陆页面")
-            var timer = setInterval(() => {
-              location.href = "../html/login.html"
-            }, 3000);
-          }
-        })
-    }
-  }
-  </script>
-  <script src="../js/magnifier.js"></script>
-  <script>
-  setTimeout(function() {
-    new magnifier("#smallPic", "#bigPic", "#zoom", localStorage.imgurl);
-  }, 1000);
-  </script>
-  <script src="../js/components.js"></script>
+        document.body.onclick = function(event) {
+            event = event || window.event;
+            var target = event.target || event.srcElement;
+            if (target.id === 'add-to-cart') {
+                console.log('添加到购物车');
+                myajax.post('http://h6.duchengjiu.top/shop/api_cart.php?token=' + localStorage.token, {
+                        goods_id,
+                        number: 1
+                    },
+                    function(err, responseText) {
+                        var json = JSON.parse(responseText);
+                        console.log(json);
+                        if (json.code === 0) {
+                            toast('添加到购物车成功');
+                        } else if (json.code === 1002) {
+                            toast("未登录时，商品不能添加，3秒后将跳转到登陆页面")
+                            var timer = setInterval(() => {
+                                location.href = "../html/login.html"
+                            }, 3000);
+                        }
+                    })
+            }
+        }
+    </script>
+    <script src="../js/magnifier.js"></script>
+    <script>
+        setTimeout(function() {
+            new magnifier("#smallPic", "#bigPic", "#zoom", localStorage.imgurl);
+        }, 1000);
+    </script>
+    <script src="../js/components.js"></script>
 </body>
 
 </html>

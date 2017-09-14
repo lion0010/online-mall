@@ -7,16 +7,19 @@ header {
     line-height: 30px;
 }
 
-header p {
-    position: relative;
-    margin-left: 100px;
+.header-list {
+    width: 1383px;
+    margin: auto;
+    height: 100%;
 }
 
-header ul {
-    right: 0;
-    top: 0;
-    position: absolute;
-    margin-right: 100px;
+.header-list>p {
+    float: left;
+    margin-left: 0;
+}
+
+.header-list>ul {
+    float: right;
 }
 
 header ul li {

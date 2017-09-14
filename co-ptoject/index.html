@@ -11,30 +11,32 @@
 <body>
     <script src="js/myajax.js" charset="utf-8"></script>
     <header>
-        <p>喵喵喵，欢迎小主</p>
-        <ul>
-            <li><a href="html/login.html" name="login" class="login">欢迎登录</a></li>
-            <li><a href="html/register.html" name="register" class="register">免费注册</a></li>
-            <li><a href="#" name="username" class="username">小主</a></li>
-            <li><a href="javascript:localStorage.clear(); location.reload();" class="logout">退出</a></li>
-            <script>
-                //判断用户名如果存在, 则显示用户名并显示退出按钮, 否则显示注册和登录
-                if (localStorage.username) {
-                    var oUsername = document.querySelector('a[name=username]');
-                    var oLogout = document.querySelector('.logout');
-                    oUsername.innerText = localStorage.username;
-                    oUsername.style.display = 'inline';
-                    oLogout.style.display = 'inline';
-                } else {
-                    var oRegister = document.querySelector('.register');
-                    var oLogin = document.querySelector('.login');
-                    oRegister.style.display = 'inline';
-                    oLogin.style.display = 'inline';
-                }
-            </script>
-            <li><a href="html/cart.html">购物车</a></li>
-            <li><a href="html/order.html">我的订单</a></li>
-        </ul>
+        <div class="header-list">
+            <p>喵喵喵，欢迎小主</p>
+            <ul>
+                <li><a href="html/login.html" name="login" class="login">欢迎登录</a></li>
+                <li><a href="html/register.html" name="register" class="register">免费注册</a></li>
+                <li><a href="#" name="username" class="username">小主</a></li>
+                <li><a href="javascript:localStorage.clear(); location.reload();" class="logout">退出</a></li>
+                <script>
+                    //判断用户名如果存在, 则显示用户名并显示退出按钮, 否则显示注册和登录
+                    if (localStorage.username) {
+                        var oUsername = document.querySelector('a[name=username]');
+                        var oLogout = document.querySelector('.logout');
+                        oUsername.innerText = localStorage.username;
+                        oUsername.style.display = 'inline';
+                        oLogout.style.display = 'inline';
+                    } else {
+                        var oRegister = document.querySelector('.register');
+                        var oLogin = document.querySelector('.login');
+                        oRegister.style.display = 'inline';
+                        oLogin.style.display = 'inline';
+                    }
+                </script>
+                <li><a href="html/cart.html">购物车</a></li>
+                <li><a href="html/order.html">我的订单</a></li>
+            </ul>
+        </div>
     </header>
     <nav>
         <a href="index.html"><img src="img/mao.gif" /></a>
@@ -99,7 +101,7 @@
             var pageNum = 1;
             myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', {
                 page: pageNum,
-                pagesize: '400'
+                pagesize: '12'
             }, function(error, responseText) {
                 var json = JSON.parse(responseText); //返回的整个json对象
                 var data = json.data; //json对象当中的data是一个数组
@@ -114,7 +116,7 @@
                     pageNum++;
                     myajax.get('http://h6.duchengjiu.top/shop/api_goods.php ', {
                         page: pageNum,
-                        pagesize: '400'
+                        pagesize: '12'
                     }, function(error, responseText) {
                         var json = JSON.parse(responseText); //返回的整个json对象
                         var data = json.data; //json对象当中的data是一个数组
