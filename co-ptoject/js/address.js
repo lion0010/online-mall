@@ -10,11 +10,9 @@ oAdd.onclick = function() {
     myajax.post('http://h6.duchengjiu.top/shop/api_useraddress.php?status=add&token=' + localStorage.token, postobj, function(err, responseText) {
         var json = JSON.parse(responseText);
         console.log(json);
-
         if (json.code === 0) {
             location.reload();
             // showAddress();
-
         } else if (json.code === 1002) {
             toast("未登录，3秒后将跳转到登陆页面")
                 // var oSecond = oGoods.querySelector('#second');
@@ -150,7 +148,7 @@ oOrder.onclick = function() {
         toast('请选择一个收货地址');
         return;
     }
-    location.href = 'order.html';
+    
     var total_prices = localStorage.sum;
     myajax.post('http://h6.duchengjiu.top/shop/api_order.php?token=' + localStorage.token + '&status=add', {
         address_id,
@@ -161,5 +159,6 @@ oOrder.onclick = function() {
         if (json.code === 0) {
             toast('下订单成功');
         }
+        location.href = 'order.html';
     });
 }

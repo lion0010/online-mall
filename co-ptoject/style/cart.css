@@ -85,7 +85,7 @@ main>div{
  	color: dodgerblue;
  	
  }
-#less,#add{
+.less,.add{
     width:25px;
     height: 25px;
     margin: 0;
@@ -96,8 +96,7 @@ main>div{
 }
 .inputnum{
     width:25px;
-    height: 2rem;
-    
+    height: 25px;
     padding: 0;
     border: 0;
     text-align: center;

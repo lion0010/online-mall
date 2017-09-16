@@ -76,7 +76,7 @@
 }
 
 .goods-desc>h2 {
-  margin: 40px auto;
+  margin: 20px auto;
   font-size: 18px;
   color: red;
   font-weight: 700;
@@ -99,4 +99,25 @@
 .goods-desc>input:hover {
   cursor: pointer;
   background: #FF6699;
+}
+.goods-desc>span{
+	display: inline-block;
+	margin-top: 20px;
+}
+.less,.add{
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    text-align: center;
+    line-height: 100%;
+    border: none;
+    outline: none;
+}
+.inputnum{
+    width:30px;
+    height:30px;
+    padding: 0;
+    border: 0;
+    text-align: center;
+    outline: none;
 }

@@ -29,14 +29,20 @@
                     if (localStorage.username) {
                         var oUsername = document.querySelector('a[name=username]');
                         var oLogout = document.querySelector('.logout');
+                        var oRegister = document.querySelector('.register');
+                        var oLogin = document.querySelector('.login');
                         oUsername.innerText = localStorage.username;
                         oUsername.style.display = 'inline';
                         oLogout.style.display = 'inline';
+                        oRegister.style.display = 'none';
+                        oLogin.style.display = 'none';
                     } else {
                         var oRegister = document.querySelector('.register');
                         var oLogin = document.querySelector('.login');
                         oRegister.style.display = 'inline';
                         oLogin.style.display = 'inline';
+                        var oLogout = document.querySelector('.logout');
+                        oLogout.style.display = 'none';
                     }
                 </script>
                 <li><a href="cart.html">购物车</a></li>
@@ -48,13 +54,19 @@
         <a href="../index.html"><img src="../img/mao.gif" /></a>
         <div id="search-text">
             <input id="search" type="text" placeholder="请输入要搜索的内容">
-            <a href="search.html"><span>搜索</span></a>
+            <a href="javascript:"><span id="searchText">搜索</span></a>
             <script>
                 var oSearch = document.querySelector("#search");
                 oSearch.onkeyup = function(event) {
                     if (event.keyCode === 13) {
                         location.href = 'search.html?search_text=' + this.value;
                     }
+                localStorage.searchTxt = this.value;
+                }
+                
+                var oSearchText=document.querySelector("#searchText")
+                oSearchText.onclick=function(event){
+                	location.href = 'search.html?search_text=' + localStorage.searchTxt;
                 }
             </script>
         </div>
