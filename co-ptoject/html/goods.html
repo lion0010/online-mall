@@ -26,6 +26,7 @@
                     if (localStorage.username) {
                         var oUsername = document.querySelector('a[name=username]');
                         var oLogout = document.querySelector('.logout');
+<<<<<<< HEAD
                          var oRegister = document.querySelector('.register');
                         var oLogin = document.querySelector('.login');
                         oUsername.innerText = localStorage.username;
@@ -40,6 +41,15 @@
                         oLogin.style.display = 'block';
                         var oLogout = document.querySelector('.logout');
                         oLogout.style.display = 'none';
+=======
+                        var oRegister = document.querySelector('.register');
+                        var oLogin = document.querySelector('.login');
+                        oUsername.innerText = localStorage.username;
+                        oUsername.style.display = 'inline';
+                        oLogout.style.display = 'inline';
+                        oRegister.style.display = 'none';
+                        oLogin.style.display = 'none';
+>>>>>>> 3ff14067419b89941f1e9a9be82ed742dedbf16a
                     }
                 </script>
                 <li><a href="cart.html">购物车</a></li>

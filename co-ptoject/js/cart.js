@@ -86,12 +86,13 @@ oTable.addEventListener('click', function(event) {
                 (err, responseText) => {
                     var json = JSON.parse(responseText);
                     console.log(json);
+                    location.reload();
                     if (json.code === 0) {
                         //删除整个TR
                         //toast("删除成功");
                         var tr = target.parentNode.parentNode;
                         tr.parentNode.removeChild(tr);
-                        location.reload();
+
                         //显示总价
                         // getSum();
                     }

@@ -30,6 +30,7 @@
                         oLogout.style.display = 'inline';
                         oRegister.style.display = 'none';
                         oLogin.style.display = 'none';
+
                     } else {
                         var oRegister = document.querySelector('.register');
                         var oLogin = document.querySelector('.login');
@@ -200,6 +201,7 @@
 
         }
 
+
 //      window.addEventListener('scroll', function(event) {
 //          var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
 //          console.log(scrolltop);
@@ -227,6 +229,42 @@
 //              });
 //          }
 //      })
+		var loadmore = true;
+        window.addEventListener('scroll', function(event) {
+            var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(scrolltop);
+            console.log(event.clientHeight);
+            if (scrolltop > (document.body.scrollHeight - document.body.clientHeight + 200)) {
+				if (loadmore === false)
+				{
+					return;
+				}
+                pageNum++;
+				loadmore = false;
+
+                if (pageNum > 10) return;
+                myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', {
+                    page: pageNum,
+                    pagesize: '12'
+                }, function(error, responseText) {
+                    var json = JSON.parse(responseText); //返回的整个json对象
+                    var data = json.data; //json对象当中的data是一个数组
+                    for (var i = 0; i < data.length; i++) {
+                        var obj = data[i]; //数组里面的每一项是一个商品分类的对象
+                        oGoods.innerHTML += `
+          <div id="hot">
+          <li><a href="html/goods.html?goods_id=${obj.goods_id}">
+          <img src="${obj.goods_thumb}"/>
+          <p>${obj.goods_name}</p>
+          <span>¥${obj.price}</span>
+          </a>
+          </li>
+          </div>`;
+                    }
+                });
+				
+            }
+        })
 
 
         //获取到clientHeight,取它的1/2保存为一个变量x
